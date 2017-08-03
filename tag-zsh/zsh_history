@@ -403,3 +403,26 @@ git push
 : 1501748423:0;git add -A
 : 1501748425:0;git init
 : 1501748427:0;git add -A
+: 1501748448:0;git commit -m"re-creates dot files repo"
+: 1501748467:0;cd ..
+: 1501748471:0;ls
+: 1501748476:0;ls -al
+: 1501748490:0;ls .zplug
+: 1501748502:0;mkrc -t zsh -d ~/dotfiles ~/.zplug
+: 1501748568:0;cd dotfiles
+: 1501748571:0;git status
+: 1501748584:0;ls tag-zsh/z
+: 1501748587:0;ls tag-zsh/
+: 1501748592:0;ls tag-zsh/zp
+: 1501748598:0;ls tag-zsh/zplug
+: 1501748628:0;cd ..
+: 1501748632:0;mkrc -t zsh -d ~/dotfiles ~/.zplug
+: 1501748706:0;cd do
+: 1501748711:0;cd dotfiles
+: 1501748712:0;ls
+: 1501748753:0;mv tag-zsh/zsh/custom/aliases.sh ./
+: 1501748754:0;ls
+: 1501748770:0;mv aliases.sh tag-zsh/zsh/custom/aliases.sh
+: 1501748786:0;mv tag-zsh/zsh/custom/install.zsh ./
+: 1501748790:0;git status
+: 1501748793:0;git add -A
