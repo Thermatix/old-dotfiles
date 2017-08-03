@@ -435,3 +435,7 @@ git push
 : 1501748925:0;ls 
 : 1501748976:0;mkrc -t vim -d ~/dotfiles ~/.viminfo
 : 1501748986:0;git add -A
+: 1501748996:0;git commit -m"adds .viminfo"
+: 1501748997:0;git push
+: 1501749026:0;mkrc -t misc -d ~/dotfiles ~/.wget-hsts
+: 1501749029:0;git add -A
