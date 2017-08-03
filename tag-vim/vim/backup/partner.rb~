@@ -1,0 +1,11 @@
+class Partner < ActiveRecord::Base
+  mount_uploader :logo_img, PartnerImageUploader 
+	validate :check_dimensions, if: :logo_img_changed?
+  
+  def check_dimensions(max_w=320,max_h=240)
+		unless logo_img_cache && (logo_img_cache.width <= max_w && logo_img_cache.height <= max_h )
+			errors.add :logo_img, "Image supplied is too big, is %spx x %spx, needs to be within %spx x %spx" % [logo_img.width, logo_img.height, max_w, max_h]
+		end
+  end
+
+end

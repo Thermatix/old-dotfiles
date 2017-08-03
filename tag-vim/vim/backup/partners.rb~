@@ -1,0 +1,21 @@
+ActiveAdmin.register Partner do
+  menu :parent => 'Courses', priority: 4
+  permit_params :name, :link, :logo_img, :featured_on_homepage 
+
+  index do
+    selectable_column
+    column :name
+    column :link
+    column :featured_on_homepage do |partner|
+      partner.featured_on_homepage? ? status_tag( "yes", :ok ) : status_tag( "no" )
+    end
+
+    column :logo do |partner|
+      image_tag partner.logo_img, class: "active-image"
+    end
+    actions
+  end
+
+
+
+end

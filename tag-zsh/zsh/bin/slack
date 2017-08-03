@@ -1,0 +1,3 @@
+#!/usr/local/bin/zsh -f
+
+node --use_strict ~/dev/javascript/terminal-slack/main.js

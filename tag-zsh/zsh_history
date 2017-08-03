@@ -1,0 +1,405 @@
+: 1501594347:528;tmux
+: 1501594882:0;tmux list-sessions
+: 1501594890:0;tmux kill-session 0
+: 1501594895:1110;tmux new -n main
+: 1501596018:0;tmux list-sessions
+: 1501596022:39;vim
+: 1501596064:183;tmux
+: 1501596249:17;tmux
+: 1501596267:153;tmux
+: 1501596423:9;vim
+: 1501596435:74;tmux
+: 1501596511:239;tmux
+: 1501596752:479;tmux
+: 1501597233:86;tmux
+: 1501597320:59;tmux
+: 1501597380:3354;tmux
+: 1501600736:155;tmux
+: 1501600904:0;source ~/.zshrc
+: 1501600924:0;tmux
+: 1501600997:0;vim
+: 1501657836:0;cd dev/work/excellere_hub_rails
+: 1501657840:0;git pulll
+: 1501657843:0;git pull
+: 1501657948:0;ta cd dev/work/excellere_hub_rails
+: 1501657949:0;cd dev/work/excellere_hub_rails; fg 2>/dev/null; echo -n
+: 1501657951:0;bim
+: 1501657954:0;vim
+: 1501658932:0;ssh-agent -h
+: 1501658969:0;ssh ubuntu@34.252.35.189
+: 1501659539:0;rails s
+: 1501659552:0;bundle install
+: 1501659561:0;gem install bundle
+: 1501659578:0;rbenv locak 2.3.4]
+: 1501659583:0;rbenv local 2.3.4
+: 1501659588:0;rbenv install 2.3.4
+: 1501660709:0;gem install bundle
+: 1501660747:0;bundle install
+: 1501660758:0;git checkout homepage_fix
+: 1501660770:0;git checkout -b homepage_fix
+: 1501660780:0;git checkout master
+: 1501660788:0;git branch 0d homepage_fix 
+: 1501660795:0;git status
+: 1501660803:0;git pull
+: 1501660831:0;cd dev/work/excellere_hub_rails
+: 1501660842:0;git checkout -b homepage_fix
+: 1501660848:0;git push -u origin homepage_fix 
+: 1501661161:0;rails s
+: 1501661176:0;rials s
+: 1501661177:0;rails s
+: 1501661186:0;gem install rails
+: 1501661273:0;rails s
+: 1501661281:0;sudo gem install rails
+: 1501661288:0;rails s
+: 1501661291:0;ruby -v
+: 1501661323:0;rails s
+: 1501661332:0;gem list rails
+: 1501661370:0;rvm local 2.3.4
+: 1501661378:0;rbenv local 2.3.4
+: 1501661379:0;rails s
+: 1501661391:0;rbenv gemset
+: 1501661405:0;ruby 0v
+: 1501661408:0;ruby -v
+: 1501661417:0;rbenv local 2.3.4p301
+: 1501661438:0;rbenv install 2.3.4p301
+: 1501661462:0;brew update && brew upgrade ruby-build
+: 1501661520:0;ehco $PATH
+: 1501661524:0;echo $PATH
+: 1501661536:0;ls -al ~/.rbenv
+: 1501661556:0;rbenv rehash
+: 1501661560:0;rails s
+: 1501661597:0;cp config/database.sample.yml config/database.yml
+: 1501661599:0;rails s
+: 1501661805:0;vim
+: 1501662118:0;pg-start
+: 1501662128:0;pg
+: 1501662138:0;brew install postgresql
+: 1501662151:0;pg-st
+: 1501662155:0;pg-start
+: 1501662168:0;alias | grep pg
+: 1501662219:0;pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+: 1501662227:0;g_ctl -D /usr/local/var/postgres stop -s -m fast
+: 1501662234:0;pg_ctl -D /usr/local/var/postgres stop -s -m fast\
+\
+
+: 1501662281:0;source ~/.zshrc
+: 1501662290:0;pg-start
+: 1501662297:0;pg-stop
+: 1501662303:0;pg-start
+: 1501662307:0;create_db 
+: 1501662314:0;rake db:migrate
+: 1501662328:0;pg
+: 1501662344:0;brew install pgtoolkit
+: 1501662362:0;pg
+: 1501662389:0;postgres
+: 1501662392:0;postgres create_db
+: 1501662405:0;postgres --help
+: 1501662460:0;psql create_Db
+: 1501662463:0;psql create_db
+: 1501662469:0;psql createdb
+: 1501662491:0;createdb
+: 1501662498:0;destroydb
+: 1501662504:0;crake db:migrate
+: 1501662510:0;rake db:migrate
+: 1501662534:0;createdb excellere_hub_development
+: 1501662537:0;rake db:migrate
+: 1501662548:0;rake db:seed
+: 1501662558:0;rails s
+: 1501663245:0;git checkout master
+: 1501663246:0;git pull
+: 1501663395:0;rails s
+: 1501663403:0;bundle install
+: 1501663413:0;rails s
+: 1501664239:0;cd dev/work/excellere_hub_rails
+: 1501664243:0;git pull
+: 1501664253:0;git checkout homepage_fix
+: 1501664261:0;git checkout master
+: 1501664275:0;rails s
+: 1501664771:0;git status
+: 1501664780:0;git diff home
+: 1501664783:0;git diff home*
+: 1501664798:0;git diff app/views/pages/home.html.erb
+: 1501664810:0;git add app/views/pages/home.html.erb
+: 1501664828:0;git commit -m"changes hash so keys are not repeated"
+: 1501664831:0;git status
+: 1501664832:0;git diff
+: 1501664838:0;git add -A
+: 1501664860:0;git commit -m"changes about us view so it checks if section content exists"
+: 1501664862:0;git push
+: 1501666163:0;git status
+: 1501666171:0;git checkout 0b fix about_us layout
+: 1501666177:0;git checkout 0-b fix about_us layout
+: 1501666182:0;git checkout -b fix about_us layout
+: 1501666193:0;git checkout -b fix_about_us_layout
+: 1501666290:0;git add -A
+: 1501666297:0;git commit -m"adds changes from home to about_us"
+: 1501666306:0;git push -u origin fix_about_us_layout 
+: 1501667316:0;git status
+: 1501667317:0;git add -A
+: 1501667323:0;git commit -m"fixes layout for about us page"
+: 1501667324:0;git push
+: 1501667428:0;sad
+: 1501667429:0;vim
+: 1501667468:0;vim .
+: 1501667618:0;vim
+: 1501667627:0;vim .
+: 1501667755:0;vim
+: 1501667763:0;vim .
+: 1501667918:0;vim
+: 1501667923:0;vim .
+: 1501668165:0;vim ./vim
+: 1501668255:0;vim .
+: 1501668283:0;vim 
+: 1501668430:0;vim .
+: 1501668852:0;git checkout master
+: 1501668855:0;git pull
+: 1501668872:0;git checkout partner_featured_on_homepage
+: 1501668887:0;git checkout -b partner_featured_on_homepage
+: 1501668892:0;git push -u origin fix_about_us_layout 
+: 1501669148:0;git status
+: 1501669150:0;git add -A
+: 1501669160:0;git commit -m"removes antigen folder and switches vim to vimFiler"
+: 1501669163:0;git push
+: 1501669202:0;vim
+: 1501669209:0;vim .
+: 1501669363:0;git status
+: 1501669364:0;git add -A
+: 1501669381:0;git commit -m"tidies up config file a little"
+: 1501669383:0;git push
+: 1501669603:0;git pull
+: 1501669809:0;git push -u origin partner_featured_on_homepage 
+: 1501669906:0;rails g AddFeaturedOnHomePageToPArtners featured_on_homepage:boolean 
+: 1501669923:0;rails g migration AddFeaturedOnHomePageToPArtners featured_on_homepage:boolean 
+: 1501669975:0;rm db/migrate/20170802103206_add_featured_on_home_page_to_p_artners.rb
+: 1501669981:0;rails g migration AddFeaturedOnHomePageToPartners featured_on_homepage:boolean 
+: 1501670015:0;git status
+: 1501670016:0;git add -A
+: 1501670046:0;git commit -m"adds migration to add featured on home page boolean to partners model"
+: 1501670059:0;rake db:migrate
+: 1501670068:0;rails s
+: 1501670312:0;rake db:rollback STEP=1
+: 1501670319:0;rake db:migrate
+: 1501670328:0;git add db/*
+: 1501670339:0;git commit -m"changes default from true to false"
+: 1501670342:0;rails s
+: 1501671431:0;:w
+: 1501671540:0;git statu
+: 1501671543:0;git status
+: 1501671561:0;git add -a
+: 1501671605:0;git commit -m"updates active admin partner page to add hoem page featured check box"
+: 1501671619:0;git add -A
+: 1501671622:0;git commit -m"updates active admin partner page to add hoem page featured check box"
+: 1501671624:0;git push
+: 1501671772:0;git status
+: 1501671773:0;git add -A
+: 1501671794:0;git commit -m"updates pages controller so parnters for home page will only show when featured"
+: 1501671795:0;git push
+: 1501672027:0;git checkout master
+: 1501672261:0;brew install fontforge
+: 1501672340:0;ls
+: 1501672343:0;ls -al
+: 1501672352:0;cd .zsh
+: 1501672355:0;ls 
+: 1501672360:0;..
+: 1501672361:0;cd ..
+: 1501672365:0;cd dev
+: 1501672382:0;git clone git@github.com:ryanoasis/nerd-fonts
+: 1501672465:0;brew tap caskroom/fonts
+: 1501672474:0;brew cask install font-hack-nerd-font
+: 1501672833:0;nerd
+: 1501673183:0;vim .
+: 1501673529:0;vim
+: 1501673600:0;vim/
+: 1501673602:0;vim
+: 1501673938:0;git pull
+: 1501673953:0;git checkout seed_dump
+: 1501673958:0;git checkout -b seed_dump
+: 1501673966:0;git push -u origin seed_dump
+: 1501674005:0;rake db:seed:dump
+: 1501674063:0;vim
+: 1501674097:0;git checkout master
+: 1501674111:0;git branch -d seed_dump 
+: 1501674123:0;ta git checkout -b seed_dump
+: 1501674123:0;git checkout -b seed_dump; fg 2>/dev/null; echo -n
+: 1501674130:0;git push -u origin seed_dump
+: 1501674167:0;ssh ubuntu@34.252.35.189
+: 1501674632:0;vim
+: 1501675225:0;scp excellerhub@34.252.35.189:~/seed_dump.rb ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501675242:0;scp ubuntu@34.252.35.189:~/seed_dump.rb ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501675276:0;scp ubuntu@34.252.35.189:/home/excseed_dump.rb ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501675293:0;scp ubuntu@34.252.35.189:/home/excellerhub/seed_dump.rb ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501675330:0;scp ubuntu@34.252.35.189:/home/excellerehub/seed_dump.rb  ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501675642:0;cat db/seed_dump.rb >> seeds.rb
+: 1501675659:0;rake db:seed
+: 1501675672:0;pg-stop
+: 1501675676:0;pg-start
+: 1501675680:0;rake db:seed
+: 1501675932:0;cat db/seed_dump.rb >> db/seeds.rb
+: 1501675951:0;vim
+: 1501675972:0;rake db:seed
+: 1501676008:0;dropdb excellere_hub_development
+: 1501676012:0;createdb excellere_hub_development
+: 1501676018:0;rake db:migrate
+: 1501676041:0;rake db:seed
+: 1501676068:0;git checkout master
+: 1501676069:0;git pull
+: 1501676077:0;git checkout seed_dump 
+: 1501676079:0;git merge master
+: 1501676095:0;rake db:seed
+: 1501676106:0;rake db:migrate
+: 1501676112:0;rake db:seed
+: 1501676123:0;dropdb excellere_hub_development
+: 1501676124:0;createdb excellere_hub_development
+: 1501676131:0;rake db:migrate
+: 1501676139:0;rake db:seed
+: 1501676320:0;:w
+: 1501676330:0;dropdb excellere_hub_development
+: 1501676331:0;createdb excellere_hub_development
+: 1501676335:0;rake db:migrate
+: 1501676342:0;rake db:seed
+: 1501676410:0;dropdb excellere_hub_development
+: 1501676411:0;createdb excellere_hub_development
+: 1501676415:0;rake db:migrate
+: 1501676424:0;rake db:seed
+: 1501676505:0;dropdb excellere_hub_development
+: 1501676507:0;createdb excellere_hub_development
+: 1501676519:0;rake db:migrate && rake db:seed
+: 1501676575:0;dropdb excellere_hub_development && creatdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501676600:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501676627:0;createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501676637:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501676660:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed --trace
+: 1501676771:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501677453:0;rails s
+: 1501677630:0;mv db/seed_dump.rb db/seeds.rb
+: 1501677634:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501677646:0;rails s
+: 1501677688:0;git status
+: 1501677695:0;git add db/
+: 1501677699:0;git add -A
+: 1501677706:0;git commit -m"adds staging seed dump"
+: 1501677708:0;git push
+: 1501678430:0;ssh ubuntu@34.252.35.189
+: 1501678562:0;scp ubuntu@34.252.35.189:/home/excellerehub/seed_dump.rb  ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501678614:0;mv db/seed_dump.rb db/seeds.rb
+: 1501678621:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501678649:0;rails s
+: 1501678702:0;wc -h
+: 1501678711:0;wc -l db/seeds.rb
+: 1501678731:0;open db/seeds.rb
+: 1501679079:0;vim
+: 1501679585:0;rails s
+: 1501679763:0;ssh ubuntu@34.252.35.189
+: 1501679799:0;scp ubuntu@34.252.35.189:/home/excellerehub/seed_dump.rb  ~/dev/work/excellere_hub_rails/db/seed_dump.rb
+: 1501679878:0;ssh ubuntu@34.252.35.189
+: 1501687808:0;git status
+: 1501687812:0;git add -A
+: 1501687863:0;git commit -m"removies vim-easytags (slow down on save) and changes syntax highlighting to use older regex engine for speed"
+: 1501687865:0;git push
+: 1501687874:0;lock
+: 1501744111:0;brew install growl
+: 1501744739:0;HOMEBREW_GITHUB_API_TOKEN="3de6924055998964b5355ceb54061b98bccd0e94"
+: 1501744741:0;brew install growl
+: 1501744785:0;printf "protocol=https\nhost=github.com\n" | git credential-osxkeychain erase
+: 1501744789:0;brew install growl
+: 1501744805:0;brew install growly
+: 1501744844:0;growly hey
+: 1501744862:0;growly -t "ls" ls
+: 1501744882:0;brew install growlnotify
+: 1501745342:0;brew tap thoughtbot/formulae
+: 1501745346:0;brew install tcm
+: 1501745349:0;brew install rcm
+: 1501745448:0;mkrc
+: 1501745487:0;mkrc -h
+: 1501745583:0;mkrc -t zsh -d ~/dotfiles/zsh ~/.zsh*
+: 1501745585:0;ls
+: 1501745589:0;ls do
+: 1501745593:0;ls dotfiles
+: 1501745597:0;ls dotfiles/zsh/tag-zsh/zsh
+: 1501745617:0;ls ~.zrc
+: 1501745624:0;ls -al
+: 1501745636:0;vim
+: 1501745661:0;ls -al | grep zsh
+: 1501745749:0;rcdn
+: 1501745752:0;ls -al | grep zsh
+: 1501745766:0;rcdn -t zsh
+: 1501745768:0;ls -al | grep zsh
+: 1501745789:0;ls
+: 1501745796:0;ls --al
+: 1501745799:0;ls -al
+: 1501745808:0;ls .zsh
+: 1501745821:0;ls dot
+: 1501745825:0;ls dotfiles
+: 1501745827:0;ls dotfiles/zsh
+: 1501745829:0;ls dotfiles/zsh/tag-zsh
+: 1501745831:0;ls dotfiles/zsh/tag-zsh/zsh
+: 1501745930:0;rcdn -t zsh -d ~/dotfiles
+: 1501745932:0;ls
+: 1501745934:0;ls -al
+: 1501746039:0;source ~/.zshrc
+: 1501746049:0;git pull
+: 1501746057:0;git reset --hard master
+: 1501746062:0;git pull
+: 1501746068:0;git fetch
+: 1501746077:0;git reset --hard origin/master
+: 1501746080:0;git diff
+: 1501746092:0;source ~/.zshrc
+: 1501746100:0;git status
+: 1501746354:0;mkrc -t zsh -d ~/dotfiles ~/*zsh*
+: 1501746399:0;mkrc -t zsh -d ~/dotfiles ~/.zsh*
+: 1501746433:0;ls
+: 1501746445:0;mkrc -t vim -d ~/dotfiles ~/*vim*
+: 1501746452:0;mkrc -t vim -d ~/dotfiles ~/.vim*
+: 1501746546:0;mkrc -t vim -d ~/dotfiles ~/.vimrc
+: 1501746552:0;mkrc -t vim -d ~/dotfiles ~/.viminfo
+: 1501746556:0;mkrc -t vim -d ~/dotfiles ~/.vimtags
+: 1501746637:0;mkrc -t zsh -d ~/dotfiles ~/.zprofile
+: 1501746647:0;cat ~/.profile
+: 1501746697:0;mkrc -t misc -d ~/dotfiles ~/.profile
+: 1501746719:0;mkrc -t git -d ~/dotfiles ~/.git*
+: 1501746733:0;mkrc -t git -d ~/dotfiles ~/.gitconfig
+: 1501746739:0;mkrc -t git -d ~/dotfiles ~/.githudrc
+: 1501746798:0;git status
+: 1501746847:0;mkdir /.tmux
+: 1501746852:0;mkdir ~/.tmux
+: 1501746856:0;mkdir ~/.tmux/
+: 1501746899:0;mkrc -t misc -d ~/dotfiles ~/.inputrc
+: 1501746914:0;mkrc -t vim -d ~/dotfiles ~/.NERDTreeBookmarks
+: 1501746932:0;mkrc -t misc -d ~/dotfiles ~/.ctags
+: 1501746953:0;mkrc -t bash -d ~/dotfiles ~/.bash
+: 1501746968:0;mkrc -t bash -d ~/dotfiles ~/.bashrc
+: 1501746974:0;mkrc -t bash -d ~/dotfiles ~/.bash_history
+: 1501746993:0;mkrc -t misc -d ~/dotfiles ~/.fzf.*
+: 1501747640:0;mkrc -t tmux -d ~/dotfiles ~/.tmux.conf
+: 1501747648:0;mkrc -t tmux -d ~/dotfiles ~/.tmux/
+: 1501747666:0;cat ~/.tmux.conf\~
+: 1501747681:0;rm ~/.tmux.conf\~
+: 1501747687:0;ls
+: 1501747720:0;source ~/.zshrc
+: 1501747790:0;ta git checkout master
+: 1501747790:0;git checkout master; fg 2>/dev/null; echo -n
+: 1501747792:0;git pull
+: 1501747849:0;where rcup
+: 1501748014:0;git status
+: 1501748017:0;git add -A
+: 1501748054:0;git commit -m"moves config files to ~/dotfiles dir and now uses rcup to initialize everything also adds rcup to install script\
+git push
+: 1501748061:0;git commit -m"moves config files to ~/dotfiles dir and now uses rcup to initialize everything also adds rcup to install script"
+: 1501748062:0;git push
+: 1501748107:0;vim
+: 1501748121:0;ls ~
+: 1501748126:0;ls -al ~
+: 1501748150:0;ls -al
+: 1501748176:0;ls dotfiles/tag-vim/vim
+: 1501748250:0;echo "so ~/.vim/vimrc.vim" >> .vimrc
+: 1501748262:0;mkrc -t vim -d ~/dotfiles ~/.vimrc
+: 1501748281:0;vim
+: 1501748289:0;git status
+: 1501748290:0;git add -A
+: 1501748303:0;git commit -m"fixes .vimrc file being removed"
+: 1501748304:0;git push
+: 1501748412:0;rm -rf ~/.git
+: 1501748420:0;cd dotfiles
+: 1501748423:0;git add -A
+: 1501748425:0;git init
+: 1501748427:0;git add -A

@@ -1,0 +1,38 @@
+#!/usr/local/bin/zsh -f
+
+wifi_quality() {
+   }
+
+if [ $(uname) = 'Darwin' ]; then
+	ssid="$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}')"
+	adapter="en0"
+	os=0
+	airportPath="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+else
+	ssid="$(iwconfig | grep ESSID | sed -e 's/.*ESSID:"\(.*\)".*/\1/')"
+	adapter="wlan0"
+	os=1
+fi
+
+if [ $(ifconfig $adapter | grep UP | wc -l) -eq 1 ]; then
+  if [ $os -gt 0 ]; then
+#    linux  
+    _linkQual="`iwconfig $_adapter_id | grep Quality | cut -d'=' -f2 | cut -d' ' -f1 | cut -d'/' -f1`"
+  else
+#   osx  
+    _linkQual="$($airportPath -I | grep -E CtlRSSI | cut -d'-' -f2)"
+  fi
+  if [ $_linkQual -gt 52 ]; then # >75% link qual 
+    _linkSparked="▁▃▅█"
+  elif [ $_linkQual -gt 35 ]; then # >50% link qual
+    _linkSparked="▃▅█▁"
+  elif [ $_linkQual -gt 17 ]; then # 25% link qual
+    _linkSparked="▃▅▁▁"
+  elif [ $_linkQual -gt 7 ]; then # 25% link qual
+    _linkSparked="▃▁▁▁"
+  else # < 25%
+    _linkSparked="▁▁▁▁"
+  fi
+
+  echo "$ssid:$_linkSparked"
+fi

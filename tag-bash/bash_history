@@ -1,0 +1,125 @@
+git
+git
+ls ~/.ssh
+mkdir ~/.ssh
+pbpase
+pbpaste > ~/.ssh/id_rsa/pub 
+pbpaste > ~/.ssh/id_rsa.pub 
+pbpaste > ~/.ssh/id_rsa 
+git config 
+git config --global user.name "thermatix|
+git config --global user.name "thermatix"
+git config credential.helper store
+git clone https://github.com/thermatix/dotfiles.git
+ls dotfiles/
+ls dotfiles/
+ls dotfiles
+cd dotfiles/
+ls
+ls .
+..
+../
+cd ..
+git clone https://github.com/thermatix/dotfiles
+vim dotfiles/
+mv dotfiles/* ./
+mv dotfiles/* ./*
+ls
+defaults write com.apple.finder AppleShowAllFiles YES
+ls
+ls -al
+ls dotfiles/
+ls dotfiles/
+cs dotfiles/
+ls
+cd dotfiles
+ls
+cd Applications/
+ls
+ls -al
+..
+cd ..
+cd ..
+rm -rf dotfiles/
+git clone https://github.com/thermatix/dotfiles ~/
+git clone -h
+git clone -f https://github.com/thermatix/dotfiles ~/
+git init
+git remote add origin git@github.com://thermatix/dotfiles
+git fetch
+git remote add origin git@github.com://thermatix/dotfiles
+rm -rf .git
+git init
+git remote add origin https://github.com/thermatix/dotfiles.git
+git remote add origin git@github.com:thermatix/dotfiles.git
+rm -rf .git
+git init
+git remote add origin git@github.com:thermatix/dotfiles.git
+git fetch
+chown thermatix:thermatix ~/.ssh/id_rsa*
+chown thermatix:thermatix ~/.ssh/id_rsa
+chown thermatix:thermatix  ~/.ssh/id_rsa
+chown -h
+chown thermatix  ~/.ssh/id_rsa*
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub 
+git fetch
+git reset origin/master
+git checout -t origin/master
+git checkout -t origin/master
+git checkout -tf origin/master
+git checkout -track origin/master
+git checkout --track origin/master
+git checkout master
+ls
+ls -al
+vim
+git pull
+git branch -u origin/master master
+git pull
+git pull -f
+git fetch
+git reset origin/master
+git checkout -t origin/master
+rm -rf .git
+ls
+git init
+git remote add origin git@github.com:thermatix/dotfiles.git
+git fetch
+git reset origin/master
+git checkout -t origin/master
+git branch -a
+git checkout -t origin/master -f
+git checkout HEAD^
+git checkout -t origin/master
+git checkout  origin/master
+git -al
+ls -al
+sh .zsh/custom/install.zsh 
+cd ~
+git pull
+sudo xcodebuild -licence
+git pull
+sudo xcodebuild -license
+git pull
+git checkout master
+git pull
+git checkout -t origin/master
+git branch --set-upstream-to=origin/master master
+git pull
+zsh ./.zsh/custom/install.zsh 
+brew
+zsh ./.zsh/custom/install.zsh 
+git pull
+git pull
+zsh ./.zsh/custom/install.zsh 
+cat ~/.zsh/custom/install.zsh 
+git pull
+zsh ./.zsh/custom/install.zsh 
+zsh ./.zsh/custom/install.zsh 
+git pull
+zsh ./.zsh/custom/install.zsh 
+git pull
+zsh ./.zsh/custom/install.zsh 
+sudo -s 'echo /usr/local/bin/zsh >> /etc/shells' && chsh -s /usr/local/bin/zsh
+zsh

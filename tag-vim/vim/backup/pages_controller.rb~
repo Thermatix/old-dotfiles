@@ -1,0 +1,107 @@
+class PagesController < ApplicationController
+  include ApplicationHelper
+  before_action :set_sub_header
+
+  # pages below are handle by CMS or partCMS in admin
+  # breadcrumd and header to be set in Admin
+  before_action :set_site_page, only: [:team,
+                                       :home,
+                                       :courses,
+                                       :bespoke_courses,
+                                       :corporate_social_responsibility,
+                                       :terms_and_conditions,
+                                       :about_us,
+                                       :cookie_policy,
+                                       :privacy_policy]
+
+  def home
+    @sub_header = nil
+    @feature_courses =  PublicCourse.home_page_features
+    @feature_articles = Article.home_page_features
+    @enquiry = Enquiry.new
+    @enquiry.enquiry_type='get_in_touch'
+    @feature_categories = Category.home_page_features
+    @main_courses = PublicCourse.home_page_main_courses
+
+  end
+
+  def bespoke_courses
+    @sub_header.sub_header_title ='Bespoke <strong>Courses</strong>'
+    @enquiry = Enquiry.new
+    @enquiry.enquiry_type='bespoke'
+  end
+
+  def news_article
+    set_news_header
+    begin
+      @article = Article.find( params[:id]) if params[:id]
+      @related_articles = @article.published_related_articles
+      @recent_articles = Article.recent_published_articles
+
+      @sub_header.add_breadcrumb("/blog","Blog")
+      @sub_header.active_crumb = @article.header
+      @metadata_description = @article.content[0..200] if @article.content
+    rescue
+      redirect_to "/blog"
+    end
+  end
+
+  # blog or news
+  def news
+    set_news_header
+    @articles = Article.published.page(params[:page]).per(9)
+    @recent_articles = Article.recent_published_articles
+    @shown_count = @articles.size
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def corporate_social_responsibility
+    @sub_header.sub_header_title = 'Corporate <strong>Social Responsibility</strong>'
+  end
+
+
+  # Defined with admin -  Part CMS
+  def about_us
+  end
+
+  def team
+    @members = TeamMember.visible_members
+  end
+
+  def courses
+    @enquiry = Enquiry.new
+    @enquiry.enquiry_type='courses'
+  end
+
+  # Defined with admin -  full CMS for pages below
+  def terms_and_conditions
+    render 'shared/cms_page'
+  end
+
+  def privacy_policy
+    render 'shared/cms_page'
+  end
+
+  def cookie_policy
+    render 'shared/cms_page'
+  end
+
+  private
+
+  def set_news_header
+    @sub_header.active_crumb = "Blog"
+    @sub_header.sub_header_title ="<strong>Excellere Hub</strong> Blog"
+  end
+
+  def set_site_page
+    @page = SitePage.send("get_#{action_name.upcase}")
+    @sub_header.active_crumb = @page.breadcrumb
+    @sub_header.sub_header_title = @page.header
+    @partners = Partner.all
+    @metadata_description = @page.meta_description
+  end
+
+end

@@ -1,0 +1,68 @@
+<section class="full white-back">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="alt-bespoke-course">
+          <div class="row">
+            <div class="col-sm-12 col-md-4">
+              <figure class="cut-out white-cut">
+                <%= image_tag( @page.section1.side_image.url,alt: "") unless @page.section1.blank? %>
+              </figure>
+            </div>
+            <div class="col-sm-12 col-md-8">
+              <header>
+                <h2 class="uppercase"><span class="hex-icon"></span><%= raw @page.section1.header unless @page.section1.blank? %></h2>
+              </header>
+              <%= raw @page.section1.content unless @page.section1.blank? %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center pad-top">
+              <a href="/public_courses" class="btn">Browse courses</a>
+            </div>
+          </div>
+        </div><!-- bespoke-course -->
+        <div class="bespoke-course alt-bespoke-course">
+          <div class="row">
+            <div class="col-sm-12">
+              <header>
+                <h2 class="uppercase"><span class="hex-icon"></span><%= raw @page.section2.header unless @page.section2.blank?%></h2>
+              </header>
+              <%= raw @page.section2.content unless @page.section2.blank? %>
+            </div>
+          </div>
+				</div>
+				<div class="bespoke-course last-item">
+					<section class="full">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="top-border partners">
+										<header>
+											<h2 class="uppercase"><span class="hex-icon"></span>Our <strong>Partners</strong></h2>
+										</header>
+										<div class="partners-grid clearfix">
+											<div class="row pad-bot-4">
+												<% @partners.each do |partner| %>
+													<div class="col-sm-6 col-md-3">
+														<a href="<%= partner.link %>">
+															<%= image_tag(partner.logo_img,alt: partner.name) %>
+														</a>
+													</div>
+												<% end %>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+					</section>
+          <div class="row">
+            <div class="col-sm-12 text-center pad-top-lg">
+              <p>Want to partner with Excellere Hub?</p>
+              <a href="/contact_us" class="btn">Contact us</a>
+            </div>
+          </div>
+        </div><!-- bespoke-course -->
+      </div>
+    </div><!-- row -->
+  </div>
+</section>
