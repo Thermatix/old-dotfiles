@@ -429,3 +429,9 @@ git push
 : 1501748821:0;git commit -m"adds zplug and moves intall script to root"
 : 1501748827:0;touch README.md
 : 1501748829:0;git add -A
+: 1501748835:0;git commit -m"adds readme file"
+: 1501748864:0;git remote add origin git@github.com:thermatix/dotfiles.git
+: 1501748869:0;git push -u origin master
+: 1501748925:0;ls 
+: 1501748976:0;mkrc -t vim -d ~/dotfiles ~/.viminfo
+: 1501748986:0;git add -A
