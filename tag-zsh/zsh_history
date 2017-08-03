@@ -426,3 +426,6 @@ git push
 : 1501748786:0;mv tag-zsh/zsh/custom/install.zsh ./
 : 1501748790:0;git status
 : 1501748793:0;git add -A
+: 1501748821:0;git commit -m"adds zplug and moves intall script to root"
+: 1501748827:0;touch README.md
+: 1501748829:0;git add -A
