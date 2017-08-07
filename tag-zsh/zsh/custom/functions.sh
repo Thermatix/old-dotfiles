@@ -15,6 +15,7 @@ function sToken() {
   export SLACK_TOKEN="$@"
 }
 
+
 if { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
 function ta()
 {
@@ -25,7 +26,7 @@ all-panes-bg_()
 {
   local COMMAND=$@
 
-  local ORIG_WINDOW_INDEX=`tmux display-message -p '#I'`
+  local ORIG_WINDOW_INDEX=`tmux display-message -p p'#I'`
   local ORIG_PANE_INDEX=`tmux display-message -p '#P'`
 
   local ORIG_PANE_SYNC=`tmux show-window-options | grep '^synchronize-panes' | awk '{ print $2 }'`

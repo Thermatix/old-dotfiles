@@ -4,6 +4,7 @@ brew=(
 	awk
 	bash
 	bitlbee
+	clang
 	colortail
 	couchdb
 	ctags
@@ -115,7 +116,7 @@ vim_plug_loc="$HOME/.vim/autoload/plug.vim"
 if [[ ! -a $vim_plug_loc ]]; then
 	echo 'installing vim-plug'
 	curl -fLo $vim_plug_loc --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	mkdir "$HOME/.vim/vim_plug"
+	mkdir "$HOME/.vim/plugged"
 else
 	print 'vim-plug installed, skipping'
 fi
@@ -131,5 +132,10 @@ if [[! -a $tmux_loc ]]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-rcup ~/dotfiles
+which -s rustc 
+if [[ $? = 0 ]] ; then
+	print 'installing rustup'
+	curl https://sh.rustup.rs -sSf | sh -y --no-modify-path --default-toolchain stable
+fi
+(cd $HOME && rcup ~/dotfiles)
 

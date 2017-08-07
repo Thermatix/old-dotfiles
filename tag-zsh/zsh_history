@@ -439,3 +439,435 @@ git push
 : 1501748997:0;git push
 : 1501749026:0;mkrc -t misc -d ~/dotfiles ~/.wget-hsts
 : 1501749029:0;git add -A
+: 1501749037:0;git commit -m"adds wget hosts file"
+: 1501749038:0;git push
+: 1501749106:0;mkrc -t misc -d ~/dotfiles ~/.CFUserTextEncoding
+: 1501749122:0;git commit -m"adds .CFUserTextEncoding file"
+: 1501749123:0;git push
+: 1501749295:0;vim
+: 1501749311:0;ta git checkout master
+: 1501749312:0;git checkout master; fg 2>/dev/null; echo -n
+: 1501749318:0;git status
+: 1501749320:0;git diff
+: 1501749323:0;git add -A
+: 1501749342:0;git commit -m"adds seeds to seed dump file from staging"
+: 1501749343:0;git pushj
+: 1501749344:0;git push
+: 1501749348:0;ta git checkout master
+: 1501749349:0;git checkout master; fg 2>/dev/null; echo -n
+: 1501749352:0;git pull
+: 1501749379:0;git checkout -b mailer_layout_fix
+: 1501749403:0;ta git checkout mailer_layout_fix
+: 1501749403:0;git checkout mailer_layout_fix; fg 2>/dev/null; echo -n
+: 1501749418:0;git push -u origin mailer_layout_fix 
+: 1501749422:0;vo,
+: 1501749424:0;vim
+: 1501749542:0;git add -A
+: 1501749579:0;git commit -m"removes pointless tags from registration mailer"
+: 1501749581:0;git push
+: 1501749882:0;git add -A
+: 1501749894:0;git commit -m"changes footer div to use footer tag"
+: 1501749895:0;git push
+: 1501750154:0;git status
+: 1501750156:0;git add -A
+: 1501750165:0;git commit -m"fixes tag typos"
+: 1501750167:0;git push
+: 1501750183:0;rails s
+: 1501750398:0;google bbc neews
+: 1501750505:0;git checkout master
+: 1501750508:0;git pull
+: 1501750533:0;git checkout -b seed_bank
+: 1501750542:0;git push -u origin seed_Bank
+: 1501750545:0;git push -u origin seed_bank
+: 1501751023:0;bundle install
+: 1501751123:0;git merge seed_dump 
+: 1501752109:0;touch provider.seeds.rb location.seeds.rb article.seeds.rb friendly_id.seeds.rb team_member.seeds.rb enquiry.seeds.rb partner.seeds.rb category.seeds.rb site_page.seeds.rb course_section.seeds.rb public_course_category.seeds.rb related_article.seeds.rb
+: 1501752129:0;mkdir development
+: 1501752140:0;mv *.seeds.* development
+: 1501752141:0;ls
+: 1501752155:0;mv db/*.seeds.* db/development
+: 1501752165:0;mv db/**.seeds.* db/development
+: 1501752179:0;cd db
+: 1501752181:0;mv *.seeds.* development
+: 1501752188:0;ls
+: 1501752221:0;touch provider.seeds.rb location.seeds.rb article.seeds.rb friendly_id.seeds.rb team_member.seeds.rb enquiry.seeds.rb partner.seeds.rb category.seeds.rb site_page.seeds.rb course_section.seeds.rb public_course_category.seeds.rb related_article.seeds.rb
+: 1501752222:0;ls
+: 1501752251:0;mkdir seeds/developement
+: 1501752270:0;mv *.seeds.* seeds/development
+: 1501752275:0;ls
+: 1501752283:0;mv ./*.seeds.* seeds/development
+: 1501752296:0;mv ./*.seeds.* seeds/development/*
+: 1501752303:0;mv ./*.seeds.* seeds/
+: 1501752307:0;cd seeds
+: 1501752307:0;ls
+: 1501752314:0;mv ./*.seeds.* developement
+: 1501752315:0;ls
+: 1501752318:0;..
+: 1501752318:0;ls
+: 1501752323:0;..
+: 1501752324:0;ls
+: 1501752327:0;cd ..
+: 1501752327:0;ls
+: 1501753506:0;git status
+: 1501753507:0;git add -A
+: 1501753542:0;git commit -m"moves most of the seeds to own files, makes side_pages a bit easier to read (and easier to load and navigate"
+: 1501753544:0;git push
+: 1501755550:0;git status
+: 1501755552:0;git add -A
+: 1501755564:0;git commit -m" moves all seeds to seperate files"
+: 1501755565:0;git push
+: 1501755891:0;cd ~/dev/work/excellere_hub_rails/
+: 1501755894:0;vim 
+: 1501757030:0;ls
+: 1501757037:0;..
+: 1501757052:0;cd ~/vim
+: 1501757061:0;cd ~/.vim/plugged
+: 1501757062:0;ls
+: 1501757067:0;cd YouCompleteMe
+: 1501757120:0;rustup
+: 1501757148:0;./install.py --all
+: 1501757156:0;brew install cmake
+: 1501757177:0;./install.py --all
+: 1501757413:0;npm install -g typescript
+: 1501757499:0;curl https://sh.rustup.rs -sSf | sh
+: 1501758426:0;:q
+: 1501758504:0;where rust
+: 1501758508:0;where rustc
+: 1501758518:0;rustc
+: 1501758659:0;[200~curl https://sh.rustup.rs -sSf | sh -s -- --help~
+: 1501758668:0;curl https://sh.rustup.rs -sSf | sh -s -- --help~
+: 1501758679:0;curl https://sh.rustup.rs -sSf | sh -s -- --help
+: 1501758805:0;source ~/.zshrc
+: 1501758870:0;./install.py --clang-completer --tern-completer --racer-completer 
+: 1501759057:0;cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
+: 1501759059:0;ruby -v
+: 1501759269:0;cd ~
+: 1501759311:0;vim
+: 1501760829:0;git status
+: 1501760831:0;git add -A
+: 1501760858:0;git commit -m"ensures site pages sections are attached to correct site pages"
+: 1501760860:0;git push
+: 1501761110:0;git status
+: 1501761113:0;git add -A
+: 1501761122:0;git commit -m"pluralises seed file names"
+: 1501761125:0;git push
+: 1501761149:0;H
+: 1501761934:0;rails s
+: 1501763323:0;git status
+: 1501763326:0;ls
+: 1501763328:0;git ls -al
+: 1501763331:0;ls -al
+: 1501763335:0;ls -al | grep \\ 
+: 1501763339:0;ls -al | grep \\\\ 
+: 1501763347:0;git status
+: 1501763370:0;git statu
+: 1501763372:0;git status
+: 1501763400:0;git add */public_courses*
+: 1501763410:0;git commit -m"changes how ids are set"
+: 1501763412:0;git add -A
+: 1501763430:0;git commit -m"ensures that source sections are correctly attached to correct public courses"
+: 1501763432:0;git push
+: 1501764134:0;git add -A
+: 1501764150:0;git commit -m"sets catagories for courses correctly:
+: 1501764152:0;git commit -m"sets catagories for courses correctly"
+: 1501764153:0;gitpush
+: 1501767698:0;git add -A
+: 1501767722:0;git commit -m"adds related article cration and changes all where's to be finds"
+: 1501767724:0;git push
+: 1501767745:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501768051:0;git status
+: 1501768052:0;git add -a
+: 1501768060:0;git add -A
+: 1501768095:0;git commit -m"changes regsitrations id to be taken from objects rather then static"
+: 1501768096:0;git push
+: 1501768607:0;git checkout master
+: 1501768614:0;git pull
+: 1501768627:0;git checkout seed_
+: 1501768636:0;git checkout seed_bank 
+: 1501769381:0;rails s
+: 1501769463:0;rails c
+: 1501769572:0;bundle install
+: 1501769593:0;bundle exec rake db:seed:development
+: 1501769628:0;RAILS_ENV='development' bundle exec rake db:seed:development
+: 1501769660:0;bundle exec rake -T
+: 1501769731:0;bundle exec rake db:seed:development
+: 1501769750:0;rake db:seed:developement
+: 1501769805:0;createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501769815:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && rake db:seed
+: 1501769837:0;rails s
+: 1501769877:0;rake db:seed:developement
+: 1501769900:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed
+: 1501769912:0;rails s
+: 1501769916:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed
+: 1501769934:0;bundle exec rake -T
+: 1501769956:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake rake db:seed:developement 
+: 1501769963:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:developement 
+: 1501770458:0;git checkout master
+: 1501770465:0;git add -A
+: 1501770472:0;git commit -m"makes changes"
+: 1501770477:0;git checkout master
+: 1501770507:0;git checkout seed_bank 
+: 1501770673:0;git commit -am"tidies up articles seeds file and fixes typo's in public_course catagories"
+: 1501770694:0;git commit --amend
+: 1501770752:0;git status
+: 1501770755:0;git add -A
+: 1501770766:0;git commit -m"adds suppourt file"
+: 1501770767:0;git push
+: 1501770774:0;git checkout master
+: 1501770784:0;git checkout seed bank
+: 1501770789:0;git checkout seed_bank
+: 1501771300:0;git checkout -f master
+: 1501771329:0;git checkout -f seed_bank 
+: 1501771363:0;git status
+: 1501771365:0;git add -A
+: 1501771375:0;git commit -m"original seed file"
+: 1501771377:0;git push
+: 1501771530:0;git status
+: 1501771532:0;git add -A
+: 1501771543:0;git commit -m"replaces site page data in original seed file"
+: 1501771544:0;git push
+: 1501831061:0;brew install exa
+: 1501831406:0;exa
+: 1501831410:0;exa -al
+: 1501832106:0;git status
+: 1501832108:0;git add -A
+: 1501832119:0;git commit -m"adds info about seeding the db to the readme file"
+: 1501832120:0;git psuh
+: 1501832123:0;git push
+: 1501833251:0;git status
+: 1501833253:0;git add -A
+: 1501833259:0;git commit -m"fixes typo's in readme"
+: 1501833260:0;git push
+: 1501833600:0;git status
+: 1501833602:0;git add -A
+: 1501833613:0;git commit -m"uncomments code"
+: 1501833615:0;git push
+: 1501833799:0;source ~/.zshrc
+: 1501833814:0;ta cd ../
+: 1501833814:0;cd ../; fg 2>/dev/null; echo -n
+: 1501833833:0;mkdir xero_invoice_daily_script
+: 1501833839:0;ta cd xero_invoice_daily_script
+: 1501833840:0;cd xero_invoice_daily_script; fg 2>/dev/null; echo -n
+: 1501833846:0;touch Gemfile
+: 1501833857:0;mkdir lib 
+: 1501833880:0;touch get_invoices_for_yesteday.rb
+: 1501833882:0;vim
+: 1501833901:0;chmod -x get_invoices_for_yesteday
+: 1501833908:0;chmod +x get_invoices_for_yesteday
+: 1501833912:0;exa -al
+: 1501833924:0;git init
+: 1501833928:0;git add -A
+: 1501833935:0;git commit -m"initial commit"
+: 1501836199:0;vim
+: 1501836275:0;cd ..
+: 1501836294:0;mv xero_invoice_daily_script xero_daily_invoice_script
+: 1501836297:0;ta cd xero_daily_invoice_script
+: 1501836297:0;cd xero_daily_invoice_script; fg 2>/dev/null; echo -n
+: 1501836300:0;vim
+: 1501836311:0;git remote add origin git@github.com:formulate/xero_daily_invoice_script.git\
+git push -u origin master
+: 1501836321:0;touch README.md
+: 1501836323:0;git status
+: 1501836326:0;git add README.md
+: 1501836331:0;git commit -m"adds readme file"
+: 1501836332:0;git pushj
+: 1501836333:0;git push
+: 1501836337:0;git status
+: 1501836344:0;git add Gemfile
+: 1501836350:0;git commit -m"adds commander to gemfile"
+: 1501836351:0;git push
+: 1501836355:0;git status
+: 1501836357:0;git add get_invoices
+: 1501836372:0;git commit -m"sets up basic commander executable code"
+: 1501836379:0;git status
+: 1501836386:0;git add lib
+: 1501836391:0;git commit -m"adds version file"
+: 1501836393:0;git add tags
+: 1501836400:0;git commit -m"adds tags file"
+: 1501836403:0;git status
+: 1501836405:0;git add -A
+: 1501836409:0;git commit -m"sets up basic commander executable code"
+: 1501836412:0;git push
+: 1501838140:0;git status
+: 1501838145:0;git add lib/version.rb
+: 1501838152:0;git commit -m"sets version"
+: 1501838155:0;git add lib/config.rb
+: 1501838160:0;git commit -m"Adds config module"
+: 1501838164:0;git status
+: 1501838167:0;git add -A
+: 1501838179:0;git push
+: 1501838201:0;git add -A
+: 1501838210:0;git reset
+: 1501838211:0;git status
+: 1501838213:0;git add config.yml
+: 1501838221:0;git commit -m"adds config file"
+: 1501838226:0;git push
+: 1501838326:0;git add Gemfile
+: 1501838336:0;git commit -m"adds xero_gate way to gemfile"
+: 1501838338:0;git push
+: 1501839433:0;git statyus
+: 1501839435:0;git status
+: 1501839438:0;git add lib/config.rb
+: 1501839449:0;git commit -m"allows config module to write config out to file"
+: 1501839451:0;git status
+: 1501839456:0;git add lib/xero.rb
+: 1501839465:0;git commit -m"Adds xero module for accessing xero api"
+: 1501839485:0;git add -A
+: 1501839503:0;git commit -m"Adds working get_xero_token command:
+: 1501839505:0;git commit -m"Adds working get_xero_token command"
+: 1501839506:0;git push
+: 1501839618:0;git statyus
+: 1501839620:0;git status
+: 1501839621:0;git add -A
+: 1501839632:0;git commit -m"adds actual working get_xero_token command"g
+: 1501839635:0;git push
+: 1501840724:0;git add Gemfile
+: 1501840731:0;git commit -m"adds highline to gem file"
+: 1501840733:0;git push
+: 1501840870:0;git add lib/xero.rb
+: 1501840889:0;git commit -m"uses highline for getting oauth_verifier"
+: 1501840890:0;git push
+: 1501840893:0;git status
+: 1501841279:0;git add lib/config.rb
+: 1501841316:0;git commit -m"changes config #set to more descriptive #load"
+: 1501841317:0;git push
+: 1501841322:0;git status
+: 1501841324:0;git add -A
+: 1501841349:0;git commit -m"adds common options, load_config and set config method"
+: 1501841367:0;git commit -am"adds common options, load_config and set config method to executable"
+: 1501841378:0;git comment --amend
+: 1501841383:0;git cimment --amend
+: 1501841387:0;git commit --amend
+: 1501841410:0;git push
+: 1501842312:0;git add lib/config.rb
+: 1501842326:0;git commit -m"impliments #each for config"
+: 1501842327:0;git push
+: 1501842625:0;bundle install
+: 1501842630:0;ruby list versions
+: 1501842634:0;rbenv list versions
+: 1501842636:0;rbenv versions
+: 1501842643:0;rbenv local 2.4.0
+: 1501842646:0;bundle install
+: 1501842657:0;ruby -v
+: 1501842673:0;gem install bundle
+: 1501842684:0;git status
+: 1501842685:0;git add .ruby-version
+: 1501842690:0;git commit -m"adds ruby version file"
+: 1501842704:0;./get_invoices.rb
+: 1501842759:0;bundle exec ./get_invoices
+: 1501842762:0;bundle exec ./get_invoices.rb
+: 1501842766:0;bundle install
+: 1501842775:0;./get_invoices.rb
+: 1501843172:0;./get_invoices.rb -h
+: 1501843176:0;./get_invoices.rb --help
+: 1501843201:0;./get_invoices.rb list_config
+: 1501843207:0;./get_invoices.rb list_config --trace
+: 1501843212:0;./get_invoices.rb list_config
+: 1501843368:0;./get_invoices.rb
+: 1501843474:0;./get_invoices.rb list_config -h
+: 1501843591:0;./get_invoices list_config -h
+: 1501843791:0;./get_invoices -h
+: 1501844137:0;./get_invoices list_config
+: 1501844159:0;./get_invoices 
+: 1501844260:0;./get_invoices list_config
+: 1501844400:0;./get_invoices list_config --trace
+: 1501844673:0;git status
+: 1501844680:0;git add Gemfile.lock
+: 1501844687:0;git commit -m"adds gem lockfile"
+: 1501844689:0;git status
+: 1501844691:0;git add get_invoices
+: 1501844717:0;git commit -m"removes rb extention from executable and changes executable to use non modular style"
+: 1501844719:0;git status
+: 1501844744:0;touch .gitignore
+: 1501844766:0;git add .gitignore
+: 1501844773:0;git commit -m"adds .gitignore"
+: 1501844774:0;git status
+: 1501844781:0;git add lib/config.rb
+: 1501844795:0;git commit -m"removes namespacing module and fixes typos"
+: 1501844798:0;git add lib/*
+: 1501844805:0;git commit -m"removes namespacing module"
+: 1501844807:0;git statyus
+: 1501844809:0;git status
+: 1501844814:0;git add get_invoices
+: 1501844819:0;git status
+: 1501844823:0;git rm config.yml
+: 1501844832:0;git rm config.yml --cached
+: 1501844834:0;giy status
+: 1501844837:0;git status
+: 1501844838:0;git add -A
+: 1501844849:0;git commit -m"removes config file"
+: 1501844857:0;git commit --amend
+: 1501844870:0;git push
+: 1501846905:0;git add Gemfile
+: 1501846911:0;git commit -m"adds google_drive to gemfile"
+: 1501846912:0;git push
+: 1501846917:0;bundle install
+: 1501849661:0;git add Gemfile
+: 1501849672:0;git commit -m:adds googleauth to Gemfile
+: 1501849679:0;git commit -m"adds googleauth to Gemfile"
+: 1501849680:0;git push
+: 1501851051:0;./get_invoices authorise
+: 1501851155:0;bundle install
+: 1501851412:0;./get_invoices authorise
+: 1501851540:0;./get_invoices authorise --trace
+: 1501851887:0;:w
+: 1501851970:0;./get_invoices authorise --trace
+: 1501852551:0;bundle install
+: 1501852991:0;./get_invoices authorise --trace
+: 1501854782:0;git status
+: 1501854789:0;git diff Gemfile
+: 1501854802:0;git add Gemfile
+: 1501854826:0;git commit -m"changes to Xeroizer from Xero_gateway and changes to the latest version of googleauth"
+: 1501854830:0;git status
+: 1501854833:0;git add Gemfile.lock
+: 1501854847:0;git commit -m"adds Gem lock file"
+: 1501854848:0;git status
+: 1501854859:0;git add lib/google.rb
+: 1501854867:0;git commit -m"adds google module"
+: 1501854869:0;git status
+: 1501854888:0;git
+: 1501854891:0;git status
+: 1501854902:0;git diff get_invoices
+: 1501854913:0;git add get_invoices
+: 1501854928:0;git commit -m"removes cli tool header from function"
+: 1501854937:0;git add lib/config.rb
+: 1501854974:0;git commit -m"stops using symbolise and stringify key methods"
+: 1501854975:0;git status
+: 1501854978:0;git add -A
+: 1501854990:0;git commit -m"gets athorisation for xero workoing\
+
+: 1501854993:0;git commit -m"gets athorisation for xero workking"\
+
+: 1501854994:0;git push
+: 1501855075:0;./get_invoices authorise --trace
+: 1501855106:0;git status
+: 1501855107:0;git add -A
+: 1501855127:0;git commit -m"adds require 'google' to executable"
+: 1501855131:0;git push
+: 1501855136:0;./get_invoices authorise --trace
+: 1501859206:0;git status
+: 1501859216:0;git add lib/google_old.rb
+: 1501859226:0;git commit -m"moves old version to _old file"
+: 1501859231:0;git add lib/google.rb
+: 1501859242:0;git commit -m"using service account credentials"
+: 1501859243:0;git statyus
+: 1501859247:0;git status
+: 1501859250:0;git add service_account_credentials.json
+: 1501859257:0;git commit -m"service account credentials
+: 1501859258:0;git commit -m"service account credentials"
+: 1501859266:0;git add get_invoices
+: 1501859272:0;git commit -m"makes changes"
+: 1501859274:0;git push
+: 1501859399:0;bindkey -v
+: 1501859417:0;hey 
+: 1501859502:0;zle
+: 1501859730:0;source ~/.zshrc
+: 1501859740:0;zle-line-init
+: 1501859750:0;zle-keymap-select
+: 1501859819:0;adadveesadasdasdasdad
+: 1501859824:0;source ~/.zshrc
+: 1502090651:0;cd $HOME
+: 1502090653:0;git status
+: 1502090658:0;cd dotfiles
+: 1502090660:0;git status
+: 1502090663:0;git add -A
