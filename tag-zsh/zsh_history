@@ -871,3 +871,12 @@ git push -u origin master
 : 1502090658:0;cd dotfiles
 : 1502090660:0;git status
 : 1502090663:0;git add -A
+: 1502090702:0;git commit -m" fixes vim plug plugin location dir not being created properly and makes rcup run in the home dir"
+: 1502090736:0;git push
+: 1502090975:0;ls -al
+: 1502090988:0;touch .git
+: 1502090995:0;touch .gitignore
+: 1502091036:0;git rm --cached tags
+: 1502091071:0;git status
+: 1502091073:0;git add =A
+: 1502091078:0;git add -A
