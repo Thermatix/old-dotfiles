@@ -3,7 +3,7 @@ so ~/.vim/config/plugins.vim
 " so ~/.vim/plugin/bclose.vim
 so ~/.vim/plugin/function_tag_finder.vim
 
-set tags=./tags; " Set tags directory
+set tags=./tags;~/tags; " Set tags directory
 set autoindent " Auto indention should be on
 set virtualedit=onemore 
 

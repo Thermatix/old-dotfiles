@@ -1,13 +1,31 @@
 "ruby
 let g:tagbar_type_ruby = {
+		\ 'ctagstype' : 'ruby',
     \ 'kinds' : [
         \ 'm:modules',
         \ 'c:classes',
-        \ 'd:describes',
         \ 'C:contexts',
         \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
+        \ 'F:singleton methods',
+        \ 'd:rspec describes',
+        \ 'C:rspec context',
+        \ 'i:rspec tests',
+    \ ],
+		\ 'kind2scope' : {
+				\'m' : 'module',
+				\'c' : 'class',
+				\'f' : 'methods',
+				\'F' : 'singleton methods',
+		\},
+		\ 'scope2kind' : {
+		\ 'module' 						: 'm',
+		\ 'class'  						: 'c',
+		\ 'methods'						: 'f',
+		\ 'singleton methods' : 'F',
+		\},
+		\ 'sro' : '::',
+		\ 'ctagsbin':  'ripper-tags',
+		\ 'ctagsargs': ['-f', '-']
 \ }
 
 "markdown

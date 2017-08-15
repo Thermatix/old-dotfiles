@@ -46,10 +46,13 @@ Plug 'cespare/vim-toml'
 "=====ruby=====
 " Vim Ruby
 Plug 'vim-ruby/vim-ruby'
-" Rails
-Plug 'tpope/vim-rails'
 " Ruby Tests
 Plug 'skalnik/vim-vroom'
+
+" Rails
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-bundler'
 
 "Rails Snippets
 " Plug 'activebridge/rails-snippets'

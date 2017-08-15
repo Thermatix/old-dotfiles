@@ -880,3 +880,551 @@ git push -u origin master
 : 1502091071:0;git status
 : 1502091073:0;git add =A
 : 1502091078:0;git add -A
+: 1502091079:0;git status
+: 1502091102:0;git commit -m"adds .gitignore and removes tags file"
+: 1502091103:0;git push
+: 1502091190:0;cd dotfiles
+: 1502091193:0;ls -al
+: 1502091459:0;HEY how are you
+: 1502091466:0;cd ../..
+: 1502091470:0;mkdir ruby
+: 1502091476:0;cd ruby
+: 1502091507:0;git clone git@github.com:rymcol/syso_intergration
+: 1502091513:0;git clone git@github.com:rymcol/suso_intergration
+: 1502091538:0;gem init curb_dsl
+: 1502091547:0;gem new curb_dsl
+: 1502091555:0;bundle init curb_dsl
+: 1502091565:0;ruby 0v
+: 1502091567:0;ruby -v
+: 1502091611:0;gem install bundle
+: 1502091631:0;bundle gem curb_dsl
+: 1502091656:0;cd curb_dsl
+: 1502091658:0;ls
+: 1502091661:0;cd lib
+: 1502091663:0;ls
+: 1502091671:0;cd ..
+: 1502091691:0;initial_version.RB
+: 1502091714:0;echo "require "curb"\
+require 'cgi'\
+\
+module Curb_DSL\
+  Regex = {\
+    cookie_header: /Set-Cookie: /\
+  }\
+  def self.included(base)\
+    base.extend Singleton\
+    base.instance_eval do\
+      attr_reader :curl, :headers,:payload, :username, :password, :auth_type, :uri, :ssl, :redirects, :type_converter,:cookies, :form_field_name, :form_fields\
+\
+      [:get, :post, :put, :delete, :head, :options, :patch, :link, :unlink].each do |func_name|\
+        define_method func_name do |&block|\
+          make_request_of func_name.to_s.upcase, &block\
+        end\
+      end\
+\
+      [:password,:username,:payload, :auth_type, :uri, :ssl, :redirects,:type_converter,:cookies,:form_field_name,:error_handler, :proxy_url, :proxy_port, :proxy_tunnel, :proxy_pass, :follow_location, :base, :routes].each do |func_name|\
+        define_method "set_#{func_name}" do |value|\
+          self.instance_variable_set :"@#{func_name}", value\
+        end\
+      end\
+    end\
+\
+    def form_field name,value\
+      @form_fields ||= []\
+      if @form_field_name\
+        @form_fields.push(Curl::PostField.content([("%[%]" % [@form_field_name,name]),value.to_s]))\
+      else\
+        @form_fields.push(Curl::PostField.content(name ,value.to_s))\
+      end\
+    end\
+\
+\
+\
+  end\
+\
+  module Singleton\
+    def request(&block)\
+      self.new(&block).body\
+    end\
+\
+    def query_params(value)\
+      Curl::postalize(value)\
+    end\
+  end\
+\
+\
+\
+  def initialize(&block)\
+    @headers ||= {}\
+    instance_eval(&block) if block_given?\
+  end\
+\
+  def header(name, content)\
+    @headers ||= {}\
+    @headers[name] = content\
+  end\
+\
+  def del_header(key)\
+    @headers.delete(key)\
+  end\
+\
+  def make_request_of(request_method,i_e =nil,&block)\
+    i_e ||= @ignore_error\
+    @resp_cookies = nil\
+    @curl = Curl::Easy.new(@uri) do |http|\
+      setup_request request_method, http\
+    end\
+    @curl.ssl_verify_peer = @ssl ||false\
+    # @curl.ignore_content_length = true\
+    if @form_fields\
+      @curl.http_post(*@form_field)\
+    else\
+      @curl.http request_method\
+    end\
+    if @curl.response_code == 301\
+      @uri =  @curl.redirect_url\
+      make_request_of request_method, i_e\
+    end\
+    if @curl.response_code != 200\
+      if @error_handler\
+        puts @error_handler.call unless i_e\
+      end\
+    end\
+    @ignore_error = false\
+  end\
+\
+\
+  def create_url(key,*args)\
+    Base % (Routes[key] % args)\
+  end\
+\
+  def status_code\
+    @curl.response_code\
+  end\
+\
+  def decode_html(string)\
+    CGI.unescapeHTML(string)\
+  end\
+\
+  def encode_html(string)\
+    CGI.escapeHTML(string)\
+  end\
+\
+  def post_body\
+    get_payload\
+  end\
+\
+  def ignore_error\
+    @ignore_error = true\
+  end\
+\
+  def body\
+    @curl.body\
+  end\
+\
+  def response_code\
+    @curl.response_code\
+  end\
+\
+  def response_headers\
+    return @resp_headers if @resp_headers\
+    _, *@resp_headers = curl.header_str.split(/[\r\n]+/).map(&:strip)\
+    @resp_headers = Hash[@resp_headers.flat_map{ |s| s.scan(/^(\S+): (.+)/) }]\
+  end\
+\
+  def response_cookies\
+    @resp_cookies ||=\
+    @curl.header_str.split("\r\n").each_with_object({}) do |header,headers|\
+      if header =~ Regex[:cookie_header]\
+        header.gsub(Regex[:cookie_header],'').split(';').each do |segment|\
+          unless segment =~ /secure/\
+            headers[$1.strip.downcase] = $2.gsub('"','') if segment =~ /(.*?)=(.*?)($|;|,(?! ))/\
+          end\
+        end\
+      end\
+    end\
+  end\
+\
+  def query_params(value)\
+    Curl::postalize(value)\
+  end\
+\
+\
+  private\
+\
+\
+  def setup_request(method,http)\
+    http.headers['request-method'] = method.to_s\
+    http.headers.update(headers || {})\
+    http.max_redirects = @redirects || 3\
+    http.post_body = get_payload || nil\
+    http.http_auth_types = @auth_type || nil\
+    http.username = @username || nil\
+    http.password = @password || nil\
+    http.useragent = "curb"\
+    http.multipart_form_post = @form_field_name ? true : false\
+    http.proxy_tunnel = @proxy_tunnel || nil\
+    http.proxy_url = @proxy_url || nil\
+    http.proxy_port = @proxy_url || nil\
+    http.proxypwd = @proxy_pass|| nil\
+    if @cookies\
+      http.enable_cookies = true\
+      http.cookies = (@cookies.is_a? String) ? @cookies : @cookies.inject("") {|cookies,data| "%s%s=%s;" % data.unshift(cookies) }\
+    end\
+    http\
+  end\
+\
+\
+  def get_payload\
+    if @type_converter\
+      @type_converter.call(@payload)\
+    else\
+      @payload\
+    end\
+  end\
+\
+end\
+" >> curb_dsl_initial.rb
+: 1502091746:0;ls
+: 1502091760:0;touch curb_dsl_initial.rb
+: 1502091770:0;vim curb_dsl_initial.rb
+: 1502091827:0;ta ~/dev/work/excellere_hub_rails
+: 1502091828:0;/Users/thermatix/dev/work/excellere_hub_rails; fg 2>/dev/null; echo -n
+: 1502092222:0;ta cd ~
+: 1502092223:0;cd /Users/thermatix; fg 2>/dev/null; echo -n
+: 1502092237:0;mkdir vm_images
+: 1502093537:0;extract
+: 1502093542:0;ls
+: 1502093545:0;cd Downloads
+: 1502093550:0;extract -h
+: 1502093552:0;extract
+: 1502093564:0;extract Kali-Linux-2017.1-vm-amd64.7z ../vm_images
+: 1502093569:0;extract Kali-Linux-2017.1-vm-amd64.7z 
+: 1502093578:0;brew install 7zip
+: 1502093598:0;brew install p7zip
+: 1502093606:0;extract Kali-Linux-2017.1-vm-amd64.7z 
+: 1502093738:0;ls
+: 1502093748:0;mv *.vmdk ../vm_images
+: 1502093773:0;mv Kali-Linux-2017.1-vm-amd64/* ../vm_images
+: 1502093778:0;ls
+: 1502093785:0;ls ../vm_images
+: 1502093800:0;mkdir ../vm_images/kali-linux
+: 1502093810:0;mkdir ../vm_images/kali-linux-2017.1-vm-amd64
+: 1502093831:0;mv ../vm_images/*.vmdk ../vm_images/Kali-Linux-2017.1-vm-amd64/
+: 1502093835:0;ls ../vm_images
+: 1502093855:0;mv ../vm_images/*.* ../vm_images/Kali-Linux-2017.1-vm-amd64/
+: 1502093863:0;ls ../vm_images
+: 1502093868:0;ls ../vm_images/kali-linux
+: 1502093910:0;rm -rF ../vm_images/kali-linux
+: 1502093928:0;rm -rf ../vm_images/kali-linux
+: 1502093934:0;ls ../vm_images/
+: 1502093936:0;ls ../vm_images/kali-linux-2017.1-vm-amd64
+: 1502093937:0;ls
+: 1502093942:0;ls Kali-Linux-2017.1-vm-amd64
+: 1502093949:0;rm -rf Kali-Linux-2017.1-vm-amd64*
+: 1502093952:0;ls
+: 1502094380:0;ta ~/dev/work/excellere_hub_rails
+: 1502094381:0;/Users/thermatix/dev/work/excellere_hub_rails; fg 2>/dev/null; echo -n
+: 1502094390:0;ta cd ~/dev/work/excellere_hub_rails
+: 1502094390:0;cd /Users/thermatix/dev/work/excellere_hub_rails; fg 2>/dev/null; echo -n
+: 1502095091:0;rails s
+: 1502096430:0;ifconfig
+: 1502096496:0;ifconfig | grep ip\ address
+: 1502096500:0;ifconfig | grep ip address
+: 1502096506:0;ifconfig | grep "ip address"
+: 1502096511:0;ifconfig | grep "ip
+: 1502096513:0;ifconfig | grep ip
+: 1502096519:0;ipconfig
+: 1502096531:0;ifconfig
+: 1502096556:0;ifconfig | grep inet
+: 1502096599:0;rails s
+: 1502096613:0;ifconfig | grep inet
+: 1502098157:0;ifconfig | grep mac
+: 1502098167:0;ifconfig | grep MAC
+: 1502098514:0;ifconfig | grep inet
+: 1502098993:0;hostname
+: 1502099038:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:developement 
+: 1502099086:0;vim
+: 1502099123:0;rails s
+: 1502099147:0;ta ~/dev/work/excellere_hub_rails
+: 1502099147:0;/Users/thermatix/dev/work/excellere_hub_rails; fg 2>/dev/null; echo -n
+: 1502099150:0;rails s
+: 1502099159:0;cd ~/dev/work/excellere_hub_rails/
+: 1502099163:0;rails s
+: 1502099204:0;OA
+: 1502099211:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:developement 
+: 1502099286:0;rake -T
+: 1502099294:0;rake -T | grep seed
+: 1502099333:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:developement 
+: 1502099378:0;rake -T | grep seed
+: 1502099494:0;git checkout master
+: 1502099496:0;git status
+: 1502099498:0;git pull
+: 1502099514:0;git checkout -b seed_bank_fix
+: 1502099525:0;git push -u origin seed_bank_fix 
+: 1502099537:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:developement 
+: 1502099617:0;rake -T | grep seed
+: 1502099710:0;git status
+: 1502099746:0;ls db/seeds/developement
+: 1502099748:0;ls db/seeds/development
+: 1502099760:0;rm db/seeds/developement
+: 1502099779:0;rm -rf db/seeds/developement
+: 1502099790:0;git status
+: 1502099801:0;git add db/seeds/development
+: 1502099817:0;git commit -m"renames seeds developement folder to remove typo"
+: 1502099822:0;git status
+: 1502099828:0;git add db/seeds/developement
+: 1502099832:0;git dtatus
+: 1502099834:0;git status
+: 1502099847:0;git commit -m"removes typo's folder name"
+: 1502099857:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:developement 
+: 1502099873:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502099918:0;git status
+: 1502099929:0;git add db/seeds/development
+: 1502099938:0;git commit -m"removes superflous author"
+: 1502099982:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502100169:0;git status
+: 1502100182:0;git add db/seeds/development/articles.seeds.rb
+: 1502100209:0;git commit -m"changes find command to correct command of find_by"
+: 1502100219:0;git add db/seeds/development/course_sections.seeds.rb
+: 1502100237:0;git commit -m"fixes after name spacing and changes find command to correct comamnd of find_by"
+: 1502100263:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502100338:0;git add db/seeds/development/public_courses.seeds.rb
+: 1502100341:0;git commit -m"fixes after name spacing and changes find command to correct comamnd of find_by"
+: 1502100347:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502100415:0;git add db/seeds/development/public_courses.seeds.rb
+: 1502100421:0;git commit -m"fixes typo:
+: 1502100423:0;git commit -m"fixes typo"
+: 1502100513:0;git add db/seeds/development/public_courses.seeds.rb
+: 1502100517:0;git reset
+: 1502100523:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502101192:0;git add db/seeds/development/public_courses.seeds.rb
+: 1502101203:0;git commit -m"adds numbers to the end of the titles"
+: 1502101466:0;d
+: 1502101473:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502101678:0;rails c
+: 1502101750:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502102246:0;git status 
+: 1502102264:0;git diff db/seeds/development/p
+: 1502102266:0;git diff db/seeds/development/public_course
+: 1502102270:0;git diff db/seeds/development/public_courses.seeds.rb
+: 1502102289:0;git add db/seeds/development/public_courses.seeds.rb
+: 1502102296:0;git status
+: 1502102303:0;git add db/seeds/development
+: 1502102324:0;git commit -m"gets public course section seeding working
+: 1502102325:0;git commit -m"gets public course section seeding working"
+: 1502102330:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502102436:0;git add db/*
+: 1502102458:0;git commit -m"removes friendly_id model seeding (should be automaticly created and not manually seeded"
+: 1502102460:0;git status
+: 1502102465:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502102514:0;git add db/*
+: 1502102536:0;git commit -m"fixes namespacing and changes find to correct find_by"
+: 1502102581:0;git add -A
+: 1502102600:0;git commit -m"changes page sections to use correct mehtod"
+: 1502102606:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502102694:0;git add app/*
+: 1502102702:0;git commit -m"changes uploader to match master"
+: 1502102765:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502103195:0;git status
+: 1502103197:0;git add -A
+: 1502103217:0;git commit -m"fixes typos and gettings seeding working for public_course_categories:
+: 1502103218:0;git commit -m"fixes typos and gettings seeding working for public_course_categories"
+: 1502103290:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502103314:0;git checkout seed_bank_fix
+: 1502103332:0;git add -A
+: 1502103347:0;git comit -m"adds working seeding for registrations"
+: 1502103356:0;git commit -m"adds working seeding for registrations"
+: 1502103407:0;dropdb excellere_hub_development && createdb excellere_hub_development && rake db:migrate && bundle exec rake db:seed:development 
+: 1502103514:0;git status
+: 1502103526:0;git add db/seeds/development/articles.seeds.rb
+: 1502103536:0;git commit -m"removes typo"\\
+
+: 1502103544:0;git add -A
+: 1502103553:0;git commit -m"adds working seeding for related articles"
+: 1502103554:0;git push
+: 1502103560:0;git status
+: 1502103563:0;git push
+: 1502103748:0;git add db/*
+: 1502103766:0;git commit -m"changes commenting out of seed file to use block comments"
+: 1502103844:0;git add -A
+: 1502103858:0;git commit -m"alters readme to take into acount seed file being commented out"
+: 1502103862:0;git push
+: 1502103980:0;rails s
+: 1502105211:0;vbox
+: 1502105273:0;$PATH= $PATH:/Applications/VirtualBox.app/Contents/MacOS
+: 1502105282:0;$PATH="$PATH:/Applications/VirtualBox.app/Contents/MacOS"
+: 1502105289:0;$path
+: 1502105293:0;echo $path
+: 1502105297:0;vbox
+: 1502105306:0;PATH="$PATH:/Applications/VirtualBox.app/Contents/MacOS"
+: 1502105315:0;VBoxManage
+: 1502105419:0;VBoxManage modify "Kali-linux-Metasploit" --vram 256
+: 1502105431:0;VBoxManage modifyvm "Kali-linux-Metasploit" --vram 256
+: 1502116554:0;git checkout master
+: 1502116556:0;git pull
+: 1502116579:0;cd dev/work/excellere_hub_rails
+: 1502116582:0;vim
+: 1502116597:0;brakeman
+: 1502175357:0;rails s
+: 1502177344:0;ta ../xero_daily_invoice_script
+: 1502177344:0;../xero_daily_invoice_script; fg 2>/dev/null; echo -n
+: 1502177359:0;vim
+: 1502177373:0;../xero_daily_invoice_script
+: 1502177376:0;vim
+: 1502177388:0;cd ../xero_daily_invoice_script
+: 1502177391:0;vim
+: 1502177746:0;./get_invoices authorise --trace
+: 1502177751:0;cd ../xero_daily_invoice_script
+: 1502177756:0;./get_invoices authorise --trace
+: 1502178614:0;bundlE
+: 1502178624:0;./get_invoices authorise --trace
+: 1502178969:0;cp ~/dev/ruby/curb_dsl/curb_dsl_initial.rb lib/curb_dsl.rb
+: 1502179707:0;./get_invoices authorise --trace
+: 1502179745:0;..
+: 1502179750:0;cd ../..
+: 1502179751:0;ls
+: 1502179753:0;cd ruby
+: 1502179778:0;git clone git@github.com:google/google-auth-library-ruby
+: 1502179783:0;cd google-auth-library-ruby
+: 1502179797:0;cd ../../ruby/google-auth-library-ruby
+: 1502179798:0;vim
+: 1502179843:0;git branch -b fixes_wrongly_named_fields
+: 1502179850:0;git checkout -b fixes_wrongly_named_fields
+: 1502179885:0;..
+: 1502179887:0;cd ..
+: 1502179892:0;rm -rf google-auth-library-ruby
+: 1502179928:0;git clone git@github.com:Thermatix/google-auth-library-ruby.git
+: 1502179936:0;cd google-auth-library-ruby
+: 1502179941:0;git checkout -b fixes_wrongly_named_fields
+: 1502179947:0;git push -u origin fixes_wrongly_named_fields 
+: 1502180023:0;gem uninstall googleauth
+: 1502180030:0;gem list google
+: 1502180037:0;rake build
+: 1502180047:0;rake gem:build
+: 1502180051:0;rake make
+: 1502180054:0;rake -T
+: 1502180061:0;bundle
+: 1502180077:0;rake build
+: 1502180083:0;gem install googleauth.gemspec
+: 1502180094:0;gem install pkg/googleauth-0.5.3.gem
+: 1502180120:0;ta cd ../../work/xero_daily_invoice_script
+: 1502180120:0;cd ../../work/xero_daily_invoice_script; fg 2>/dev/null; echo -n
+: 1502180143:0;ta ~/dev/ruby/google-auth-library-ruby
+: 1502180144:0;/Users/thermatix/dev/ruby/google-auth-library-ruby; fg 2>/dev/null; echo -n
+: 1502180152:0;ta cd ~/dev/ruby/google-auth-library-ruby
+: 1502180153:0;cd /Users/thermatix/dev/ruby/google-auth-library-ruby; fg 2>/dev/null; echo -n
+: 1502180166:0;vim
+: 1502180170:0;./get_invoices authorise --trace
+: 1502180188:0;gem list google
+: 1502180195:0;gem uninstall googleauth
+: 1502180209:0;ruby -v
+: 1502180226:0;rbenv local 2.4.0
+: 1502180232:0;ruby -v
+: 1502180235:0;gem install pkg/googleauth-0.5.3.gem
+: 1502180242:0;./get_invoices authorise --trace
+: 1502180311:0;vim
+: 1502180332:0;rm pkg/googleauth-0.5.3.gem
+: 1502180350:0;rake build
+: 1502180353:0;bundle
+: 1502180366:0;rake build
+: 1502180375:0;gem install pkg/googleauth-0.5.4.gem
+: 1502180380:0;./get_invoices authorise --trace
+: 1502180398:0;bundle
+: 1502180417:0;bundle update
+: 1502180429:0;./get_invoices authorise --trace
+: 1502180545:0;which rails
+: 1502180561:0;gem uninstall googleauth
+: 1502180570:0;./get_invoices authorise --trace
+: 1502180582:0;gem uninstall googleauth
+: 1502180597:0;bundle update
+: 1502180754:0;./get_invoices authorise --trace
+: 1502189843:0;cat lib/curb_dsl.rb | pbcopy
+: 1502190738:0;ta cd ~
+: 1502190739:0;cd /Users/thermatix; fg 2>/dev/null; echo -n
+: 1502190740:0;vim
+: 1502191114:0;ctags
+: 1502191146:0;ctags -h
+: 1502191149:0;ctags --help
+: 1502191375:0;ripper-tags
+: 1502191379:0;gem install ripper-tags
+: 1502191386:0;ripper-tags
+: 1502191399:0;ruby -v
+: 1502191450:0;vim
+: 1502191929:0;ripper-tags
+: 1502191936:0;ruby -v
+: 1502191947:0;rbenv global 2.4.0
+: 1502191950:0;ruby -v
+: 1502191956:0;ripper-tags -h
+: 1502192124:0;vim
+: 1502192385:0;gem install gem-ctags
+: 1502192389:0;gem install tags
+: 1502192465:0;rbenv ctags
+: 1502192480:0;mkdir ~/.rbenv/plugins
+: 1502192497:0;git clone git@github.com:tpope/rbenv-ctags.git
+: 1502192512:0;rm rf rbenv-ctags
+: 1502192516:0;rm -rf rbenv-ctags
+: 1502192534:0;git clone git@github.com:tpope/rbenv-ctags.git ~/.rbenv/plugins/rbenv-ctags
+: 1502192543:0;rbenv ctags
+: 1502192609:0;ls
+: 1502192619:0;cargo
+: 1502192708:0;rbenv ctags
+: 1502192770:0;vim
+: 1502194331:0;ctags --list-kinds=ruby
+: 1502194744:0;viM
+: 1502194767:0;vim
+: 1502194792:0;ctags --list-kinds=ruby
+: 1502194832:0;vim
+: 1502195020:0;ctags --list-kinds=ruby
+: 1502195350:0;ctags --list-kinds=rust
+: 1502195374:0;ctags --list-kinds=ruby
+: 1502195542:0;rustup component add rust-src
+: 1502195559:0;ctags --list-kinds=ruby
+: 1502195577:0;ctags --list-kinds=rust
+: 1502195590:0;vim
+: 1502195854:0;brew tags
+: 1502195858:0;brew list tags
+: 1502195864:0;brew install list tags
+: 1502195883:0;brew install --list tags
+: 1502196331:0;vim
+: 1502196665:0;:vim
+: 1502196667:0;vim
+: 1502196823:0;vom
+: 1502196824:0;vim
+: 1502198054:0;ctags
+: 1502198057:0;brew install --list tags
+: 1502204423:0;ta cd ../excellere_hub_rails
+: 1502204423:0;cd ../excellere_hub_rails; fg 2>/dev/null; echo -n
+: 1502204426:0;vim
+: 1502204491:0;branchman
+: 1502204496:0;bundle install
+: 1502204505:0;brakeman
+: 1502204548:0;git checkout -b vulnerabilities_fix
+: 1502204554:0;git push -u origin vulnerabilities_fix 
+: 1502204847:0;brakeman
+: 1502204854:0;git status 
+: 1502204856:0;git add -A
+: 1502204911:0;git commit -m"uses rails built in sql substituion to sanatzie input's for public courses search"
+: 1502204913:0;git push
+: 1502267590:0;nvm
+: 1502267593:0;node -v
+: 1502267604:0;npm install -g create-react-app
+: 1502267879:0;npm install yarn
+: 1502267891:0;ls
+: 1502267895:0;rm -rf node_modules
+: 1502267901:0;npm -g install yarn
+: 1502267913:0;ls
+: 1502267917:0;yarn
+: 1502267919:0;ls
+: 1502267923:0;rm -rf node_modules
+: 1502267928:0;rm yarn.lock
+: 1502267929:0;ls
+: 1502267973:0;npm install -g create-react-native-app
+: 1502268900:0;rake spec
+: 1502268908:0;rake -T
+: 1502268927:0;rake stats
+: 1502268943:0;rake tests
+: 1502268949:0;rake test:all
+: 1502268961:0;pg-start
+: 1502268966:0;rails s
+: 1502268986:0;exit
