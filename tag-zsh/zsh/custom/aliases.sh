@@ -15,4 +15,8 @@ alias nl="npm list --depth=0 2>/dev/null"
 alias pg-start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg-stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
+alias mysql-start="launchctl load 	-F /usr/local/Cellar/mysql/5.7.19/homebrew.mxcl.mysql.plist"
+alias mysql-stop="launchctl unload  -F /usr/local/Cellar/mysql/5.7.19/homebrew.mxcl.mysql.plist"
+alias mysql-restart="mysql-stop && mysql-start"
+
 alias mux="tmuxinator"
