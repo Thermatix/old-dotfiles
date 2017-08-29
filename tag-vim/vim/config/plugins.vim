@@ -1,6 +1,6 @@
 " For vundle
 filetype off
-call plug#begin('~/.vim/plugged/')
+call plug#begin('~/dotfiles/tag-vim/vim/plugged')
 " Vundler"
 Plug 'gmarik/vundle'
 

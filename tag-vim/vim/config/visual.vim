@@ -48,7 +48,7 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 15
 
 " customise vert split design
-set fillchars+=vert:█
+set fillchars+=vert:\ 
 hi vertsplit guifg=grey guibg=grey
 
 syntax sync minlines=256
