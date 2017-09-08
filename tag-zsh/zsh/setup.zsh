@@ -19,6 +19,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export MANPATH="/usr/bin/man:$MANPATH"
 
+export RAILS_VER="4.2.7.1"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -68,5 +70,7 @@ eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 bindkey -v
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
 export KEYTIMEOUT=1
 # source /usr/local/Cellar/zsh-syntax-highlighting/0.4.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
