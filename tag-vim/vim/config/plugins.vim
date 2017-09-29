@@ -1,4 +1,11 @@
-" For vundle
+
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+
 filetype off
 call plug#begin('~/dotfiles/tag-vim/vim/plugged')
 " Vundler"
@@ -18,7 +25,7 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 
 "auto completion
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer --racer-completer'}
 
 "react snippits
 
@@ -36,6 +43,8 @@ Plug 'altercation/vim-colors-solarized'
 
 "breezy theme
 Plug 'fneu/breezy'
+
+Plug 'morhetz/gruvbox'
 
 "============language packages============
 "=====oneoffs=====
@@ -62,6 +71,11 @@ Plug 'tpope/vim-bundler'
 
 "Heredoc Highlighting
 Plug 'joker1007/vim-ruby-heredoc-syntax'
+
+" Chef
+
+Plug 'dougireton/vim-chef'
+" Plug 't9md/vim-chet9md/vim-cheff'
 
 "=====javascript=====
 " javascript
@@ -126,16 +140,21 @@ Plug 'airblade/vim-gitgutter'
 
 " Every one should have a pair (Autogenerate pairs for "{[( )
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'easymotion/vim-easymotion'
 "multi cursor
 Plug 'terryma/vim-multiple-cursors'
 
-"
-" Plug 'vim-scripts/multiselect'
+"Indent guides
+" Plug 'nathanaelkane/vim-indent-guides'
+Plug 'thaerkh/vim-indentguides'
+
 
 " Fuzzu finder for vim 
 Plug 'wincent/command-t'
 " Bund;e 'junegunn/fzf.vim'
+
+"Vim motions on SPEED! (keep it above 50 please)
+Plug 'easymotion/vim-easymotion'
 
 " Syntax checking
 Plug 'scrooloose/syntastic'

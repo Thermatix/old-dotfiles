@@ -4,12 +4,13 @@ syntax on
 
 " Configs to make Molokai look great
 set background=dark
-let g:molokai_original=1
+" let g:molokai_original=1
 let g:rehash256=1
 set t_Co=256
 " set termguicolors " if you want to run vim in a terminal
 " colorscheme breezy
-colorscheme molokai
+" custom schemes installed: molokai gruvbox solarized breezey
+colorscheme gruvbox
 
 " Show trailing whitespace and spaces before a tab:
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -17,12 +18,21 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 " Lovely linenumbers
 set nu
 
-
-let g:airline_theme='ubaryd'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 set laststatus=2
 
-
+"gruvbox config
+let g:gruvbox_underline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+let g:gruvbox_termcolors=256
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_number_column='orange'
+let g:gruvbox_vert_split='grey'
+let g:gruvbox_improved_strings=1
+let g:gruvbox_improved_warnings=1
 " highlight the current line
 set cursorline
 " Highlight active column
@@ -34,11 +44,28 @@ hi IndentGuidesEven ctermbg=236
 
 
 set ts=2 sw=2 noet
-let g:indent_guides_start_level=2
-" let g:indent_guides_guide_level=1
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors=0
+"vim0indentguides config options
+let g:indentguides_ignorelist = ['text']
+let g:indentguides_spacechar = '┊'
+let g:indentguides_tabchar = '┋'
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
+"vim-indent-guides config options
+" let g:indent_guides_start_level=2
+" let g:indent_guides_guide_level = 1
+" let g:indent_guides_enable_on_vim_startup = 1
+" " let g:indent_guides_auto_colors=1
+" " let g:indentLine_setColors = 1
+" let g:indentLine_bgcolor_term = 0 
+
+" let g:indentLine_char = '⎸'
+" let g:indentLine_char = '┆'
+" let g:indentLine_char = '¦'
+" let g:indentLine_char = '│'
+" let g:indentLine_char = '▏'
+
+
+let g:NERDTreeWinSize=45
 
 " netrw config
 let g:netrw_banner = 0
@@ -49,7 +76,7 @@ let g:netrw_winsize = 15
 
 " customise vert split design
 set fillchars+=vert:\ 
-hi vertsplit guifg=grey guibg=grey
+hi vertsplit guifg=white guibg=white
 
 syntax sync minlines=256
 set re=1
