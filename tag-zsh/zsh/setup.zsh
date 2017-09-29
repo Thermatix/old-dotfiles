@@ -9,8 +9,8 @@ else
   export EDITOR='vim'
 fi
 
-export SSH_KEY_PATH="$HOME/.ssh/dsa_id"
-
+export SSH_KEY_PATH="$HOME/.ssh/id_rsa"
+ssh-add $SSH_KEY_PATH
 
 export RUST_SRC_PATH="$HOME/.multirust/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 export OPENSSL_INCLUDE_DIR="$(brew --prefix openssl)/include"
