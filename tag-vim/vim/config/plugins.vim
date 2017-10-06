@@ -62,6 +62,7 @@ Plug 'skalnik/vim-vroom'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-haml'
 
 "Rails Snippets
 " Plug 'activebridge/rails-snippets'

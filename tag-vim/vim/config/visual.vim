@@ -48,7 +48,7 @@ set ts=2 sw=2 noet
 let g:indentguides_ignorelist = ['text']
 let g:indentguides_spacechar = '┊'
 let g:indentguides_tabchar = '┋'
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set listchars=tab:›\ 
 
 "vim-indent-guides config options
 " let g:indent_guides_start_level=2
