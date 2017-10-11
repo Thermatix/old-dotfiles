@@ -25,7 +25,7 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 
 "auto completion
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer --racer-completer'}
+" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer --racer-completer'}
 
 "react snippits
 

@@ -57,3 +57,12 @@ nnoremap <F12> :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<return>
 
 " bind K to grep word under cursor
 vmap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" replace currently selected text with default register
+" without yanking it
+vnoremap <leader>p "_dP
