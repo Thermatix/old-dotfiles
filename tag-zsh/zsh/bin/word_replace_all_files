@@ -1,0 +1,12 @@
+#!/usr/local/bin/bash -f
+word_to_look_for=$1
+substitute=$2
+file_type=$3
+
+if [[ -z "$file_type" ]]; then
+	find ./  -exec sed -i "" "s/$word_to_look_for/$substitue/g" {} \;
+else
+	find ./ -name "$file_type" -exec sed -i "" "s/$word_to_look_for/$substitute/g" {} \;
+fi
+
+

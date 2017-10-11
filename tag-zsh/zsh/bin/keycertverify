@@ -1,0 +1,29 @@
+#!/usr/local/bin/bash -f
+
+key=$1
+cert=$2
+
+if [[ -z "$key" ]]; then
+	echo "No key passed" && exit
+fi
+if [[ -z "$cert" ]]; then
+	echo "No cert passed" && exit
+fi
+
+key_check=$(openssl rsa -noout -modulus -in "$key" | openssl md5)
+cert_check=$(openssl x509 -noout -modulus -in "$cert" | openssl md5)
+
+if [[ $key_check == $cert_check ]]; then
+	echo "Key($key) maches Cert($cert)";
+else
+	echo "Key($key) does not maches Cert($cert)";
+fi
+
+
+
+#if true | openssl s_client -connect www.google.com:443 2>/dev/null | \
+#  openssl x509 -noout -checkend 0; then
+#  echo "Certificate is not expired"
+#else
+#  echo "Certificate is expired"
+#fi
