@@ -63,6 +63,8 @@ vmap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
+nnoremap <leader>x "_x
+vnoremap <leader>x "_x
 " replace currently selected text with default register
 " without yanking it
 vnoremap <leader>p "_dP
