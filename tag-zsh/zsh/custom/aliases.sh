@@ -21,7 +21,7 @@ alias mysql-restart="mysql-stop && mysql-start"
 
 alias mux="tmuxinator"
 alias mvim="/usr/local/Cellar/macvim/8.0-136/Macvim.app"
-alias dnsreset="sdscacheutil -flushcache;udo killall -HUP mDNSResponder"
+alias dnsreset="sudo killall -HUP mDNSResponder"
 alias tosingleline="ruby -e 'p ARGF.read'"
 eval $(thefuck --alias)
 # alias rails="rails _$RAILS_VER_"
