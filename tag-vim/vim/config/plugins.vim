@@ -147,7 +147,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 "Indent guides
 " Plug 'nathanaelkane/vim-indent-guides'
-Plug 'thaerkh/vim-indentguides'
+" Plug 'thaerkh/vim-indentguides'
 
 
 " Fuzzu finder for vim 
