@@ -10,8 +10,7 @@ augroup vimrc_autocmd
 	autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 	autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 augroup END
-
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+    call webdevicons#refresh()
+endif

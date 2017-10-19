@@ -7,8 +7,7 @@ set background=dark
 " let g:molokai_original=1
 let g:rehash256=1
 set t_Co=256
-" set termguicolors " if you want to run vim in a terminal
-" colorscheme breezy
+set termguicolors " if you want to run vim in a terminal
 " custom schemes installed: molokai gruvbox solarized breezey
 colorscheme gruvbox
 
@@ -28,9 +27,9 @@ let g:gruvbox_undercurl=1
 let g:gruvbox_italic=1
 let g:gruvbox_bold=1
 let g:gruvbox_termcolors=256
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_number_column='orange'
-let g:gruvbox_vert_split='grey'
+" let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_number_column='orange'
+" let g:gruvbox_vert_split='grey'
 let g:gruvbox_improved_strings=1
 let g:gruvbox_improved_warnings=1
 " highlight the current line
@@ -40,22 +39,28 @@ set cuc cul"
 
 " Indentation guide settings
 " hi IndentGuidesOdd  ctermbg=233
-hi IndentGuidesEven ctermbg=236
+" hi IndentGuidesEven ctermbg=236
 
 
 set ts=2 sw=2 noet
 "vim0indentguides config options
-let g:indentguides_ignorelist = ['text']
-let g:indentguides_spacechar = '┊'
-let g:indentguides_tabchar = '┋'
+" let g:indentguides_ignorelist = ['text']
+" let g:indentguides_spacechar = '┊'
+" let g:indentguides_tabchar = '┋'
+"disable $ appearing after every line end
 set listchars=tab:›\ 
+
+" Disable Background Color Erase when within tmux - https://stackoverflow.com/q/6427650/102704
+if $TMUX != ""
+	set t_ut=
+endif
 
 "vim-indent-guides config options
 " let g:indent_guides_start_level=2
 " let g:indent_guides_guide_level = 1
 " let g:indent_guides_enable_on_vim_startup = 1
-" " let g:indent_guides_auto_colors=1
-" " let g:indentLine_setColors = 1
+" let g:indent_guides_auto_colors=1
+" let g:indentLine_setColors = 1
 " let g:indentLine_bgcolor_term = 0 
 
 " let g:indentLine_char = '⎸'
@@ -80,6 +85,30 @@ hi vertsplit guifg=white guibg=white
 
 syntax sync minlines=256
 set re=1
+" GitGutter styling to use · instead of +/-
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+
+" ALE
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
+
+"nerdtree git indicators
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 "VimFiler config
 " let g:vimfiler_as_default_explorer = 1

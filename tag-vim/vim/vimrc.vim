@@ -70,33 +70,40 @@ augroup myfiletypes
 	autocmd FileType ruby,eruby,yaml,markdown,rust set ai sw=2 sts=2 et
 augroup END
 
-"nerdtree git indicators
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
 " status line info
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Air line 
+let g:airline#extensions#ale#enabled = 1
+
+" IRB interactive 
+if has("autocmd")
+  " Enable filetype detection
+  filetype plugin indent on
+
+  " Restore cursor position
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+endif
+if &t_Co > 2 || has("gui_running")
+  " Enable syntax highlighting
+  syntax on
+endif
+
 "syntastic config
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_ruby_exec = expand('~/.rbenv/shims/ruby')
-let g:syntastic_rust_checkers = ['cargo', 'rustc']
-let g:syntastic_loc_list_height=7
-let g:ycm_rust_src_path = expand($RUST_SRC_PATH)
-let g:syntastic_quiet_messages = { 'regex': 'never' }
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_ruby_exec = expand('~/.rbenv/shims/ruby')
+" let g:syntastic_rust_checkers = ['cargo', 'rustc']
+" let g:syntastic_loc_list_height=7
+" let g:ycm_rust_src_path = expand($RUST_SRC_PATH)
+" let g:syntastic_quiet_messages = { 'regex': 'never' }
 
 "Silver Searcher
 if executable('ag')

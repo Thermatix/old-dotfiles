@@ -1,7 +1,9 @@
-function Allmap(mapping)
-  execute 'map' a:mapping
-  execute 'map!' a:mapping
-endfunction
+if !exists("*Allmap")
+	function Allmap(mapping)
+		execute 'map' a:mapping
+		execute 'map!' a:mapping
+	endfunction
+endif
 
 
 call Allmap('   <ESC>[A         <Up>')
@@ -27,7 +29,10 @@ call Allmap('   <ESC>[1;2d      <S-d>')
 call Allmap('   <ESC>[1;2x      <S-x>')
 call Allmap('   <ESC>[1;2s      <S-s>')
 call Allmap('   <ESC>[3~        <Del>')
-call Allmap('   <ESC>[1;2h       <S-h>')
-call Allmap('   <ESC>[1;2l       <S-l>')
+call Allmap('   <ESC>[1;2h      <S-h>')
+call Allmap('   <ESC>[1;2l      <S-l>')
+call Allmap('   <ESC>^[         <Alt>')
+call Allmap('   <ESC>^[j        <Alt-j>')
+call Allmap('   <ESC>^[k        <Alt-k>')
 
 

@@ -39,10 +39,16 @@ map  <Del> <Esc>x1i
 vmap  <Del> <Esc>x1v
 
 "multi-cursor mappings"
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" let g:multi_cursor_next_key='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
+
+" Ale Key Mappings
+" jump to errors
+nmap <silent> <alt-j> <Plug>(ale_previous_wrap)
+nmap <silent> <alt-k> <Plug>(ale_next_wrap)
+
 
 " Removing escape
 ino jj <esc>
@@ -62,3 +68,8 @@ vmap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " replace currently selected text with default register
 " without yanking it
 vnoremap <leader>p "_dP
+
+
+" I always hit ":W" instead of ":w" because I linger on the shift key...
+command! Q q
+command! W w
