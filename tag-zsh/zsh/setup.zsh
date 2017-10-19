@@ -18,7 +18,7 @@ export OPENSSL_LIB_DIR="$(brew --prefix openssl)/lib"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 export MANPATH="/usr/bin/man:$MANPATH"
-
+export TERM=xterm-256color
 export RAILS_VER="4.2.7.1"
 
 # You may need to manually set your language environment
