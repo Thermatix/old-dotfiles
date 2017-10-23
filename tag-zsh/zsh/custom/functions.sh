@@ -16,12 +16,17 @@ function sToken() {
 }
 
 
+function vim()
+{
+	cmd="exec /usr/local/bin/vim $@"
+	rbenv only -r 2.3.5 -c "$cmd";
+}
+
 if { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
 function ta()
 {
   all-panes-bg_ "$@" &
 }
-
 all-panes-bg_()
 {
   local COMMAND=$@
