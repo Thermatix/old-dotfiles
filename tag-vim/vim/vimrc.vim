@@ -62,6 +62,7 @@ let g:vroom_use_zeus = 1
 
 
 
+let g:rainbow_active = 1
 
 augroup myfiletypes
 	" Clear old autocmds in group
@@ -78,21 +79,22 @@ set statusline+=%*
 " Air line 
 let g:airline#extensions#ale#enabled = 1
 
-" IRB interactive 
-if has("autocmd")
-  " Enable filetype detection
-  filetype plugin indent on
+" " IRB interactive 
+" if has("autocmd")
+"   " Enable filetype detection
+"   filetype plugin indent on
+"
+"   " Restore cursor position
+"   autocmd BufReadPost *
+"     \ if line("'\"") > 1 && line("'\"") <= line("$") |
+"     \   exe "normal! g`\"" |
+"     \ endif
+" endif
+" if &t_Co > 2 || has("gui_running")
+"   " Enable syntax highlighting
+"   syntax on
+" endif
 
-  " Restore cursor position
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-endif
-if &t_Co > 2 || has("gui_running")
-  " Enable syntax highlighting
-  syntax on
-endif
 
 "syntastic config
 " let g:syntastic_always_populate_loc_list = 1

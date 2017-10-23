@@ -27,9 +27,9 @@ let g:gruvbox_undercurl=1
 let g:gruvbox_italic=1
 let g:gruvbox_bold=1
 let g:gruvbox_termcolors=256
-" let g:gruvbox_contrast_dark='hard'
-" let g:gruvbox_number_column='orange'
-" let g:gruvbox_vert_split='grey'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_number_column='orange'
+let g:gruvbox_vert_split='grey'
 let g:gruvbox_improved_strings=1
 let g:gruvbox_improved_warnings=1
 " highlight the current line
@@ -48,12 +48,13 @@ set ts=2 sw=2 noet
 " let g:indentguides_spacechar = '┊'
 " let g:indentguides_tabchar = '┋'
 "disable $ appearing after every line end
-set listchars=tab:›\ 
+" set listchars=tab:›\ 
 
 " Disable Background Color Erase when within tmux - https://stackoverflow.com/q/6427650/102704
 if $TMUX != ""
 	set t_ut=
 endif
+" Rainbow config
 
 "vim-indent-guides config options
 " let g:indent_guides_start_level=2

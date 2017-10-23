@@ -22,7 +22,7 @@ Plug 'honza/vim-snippets'
 
 
 "auto completion
-" Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --tern-completer --racer-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': 'rbenv only -r 2.3.5 -c \"./install.py --clang-completer --tern-completer --racer-completer\"'}
 
 "react snippits
 
@@ -136,6 +136,9 @@ Plug 'airblade/vim-gitgutter'
 " Surround your code :)
 Plug 'tpope/vim-surround'
 
+"Color hex codes and names
+Plug 'chrisbra/Colorizer'
+
 " Every one should have a pair (Autogenerate pairs for "{[( )
 Plug 'jiangmiao/auto-pairs'
 "multi cursor
@@ -163,7 +166,7 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
 "Changes Bracket colours depending on nesting
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 
 "markdown
 Plug 'plasticboy/vim-markdown'
