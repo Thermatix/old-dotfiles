@@ -61,6 +61,7 @@ build_prompt() {
   prompt_context
   prompt_dir
   prompt_end
+	echo "ruby $(ruby -v | awk '{print $2}')"
 	gitHud zsh
 }
 
