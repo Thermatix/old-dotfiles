@@ -87,10 +87,10 @@ hi vertsplit guifg=white guibg=white
 syntax sync minlines=256
 set re=1
 " GitGutter styling to use · instead of +/-
-let g:gitgutter_sign_added = '∙'
-let g:gitgutter_sign_modified = '∙'
-let g:gitgutter_sign_removed = '∙'
-let g:gitgutter_sign_modified_removed = '∙'
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
+let g:gitgutter_sign_modified_removed = '●'
 
 " ALE
 let g:ale_sign_warning = '▲'
