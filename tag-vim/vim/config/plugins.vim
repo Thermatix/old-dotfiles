@@ -148,9 +148,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'nathanaelkane/vim-indent-guides'
 
 
-" Fuzzu finder for vim 
-Plug 'wincent/command-t'
-" Plug 'junegunn/fzf.vim'
+" Fuzzy finder for vim 
+" Plug 'wincent/command-t'
+Plug 'junegunn/fzf.vim', { 'dir': '~/.fzf', 'do': './install --all' }
 
 "Vim motions on SPEED! (keep it above 50 please)
 Plug 'easymotion/vim-easymotion'
