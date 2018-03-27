@@ -1,0 +1,1 @@
+/Users/Thermatix/dotfiles/tag-vim/vim/config/mapings.vim
